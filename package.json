@@ -1,5 +1,5 @@
 {
-  "name": "mvc-restaurant",
+  "name": "scaffold-pwa",
   "version": "0.0.1",
   "license": "See license in LICENSE",
   "private": true,
@@ -28,7 +28,7 @@
         },
         {
           "path": "ocapi",
-          "host": "zzte-018.sandbox.us02.dx.commercecloud.salesforce.com"
+          "host": "zzrf-001.sandbox.us01.dx.commercecloud.salesforce.com"
         },
         {
           "path": "einstein",
