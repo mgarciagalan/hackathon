@@ -76,7 +76,7 @@ const colors = {
     },
 
     yellow: {
-        50: '#FBF3E0',
+        50: '#FFD93B',
         100: '#F9E3B6',
         200: '#FCC003',
         300: '#E4A201',

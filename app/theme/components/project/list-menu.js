@@ -52,7 +52,8 @@ export default {
             marginLeft: 3,
             fontSize: 'md',
             fontWeight: 700,
-            color: 'gray.900',
+            textTransform: 'uppercase',
+            color: 'gray',
             _hover: {
                 textDecoration: 'none'
             }
@@ -62,7 +63,7 @@ export default {
             textDecoration: 'none',
             _before: {
                 position: 'absolute',
-                backgroundColor: 'black',
+                backgroundColor: 'gray',
                 content: 'attr(name)',
                 height: '2px',
                 color: 'transparent',

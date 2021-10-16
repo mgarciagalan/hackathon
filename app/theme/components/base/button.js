@@ -10,19 +10,36 @@ export default {
     },
     variants: {
         solid: (props) =>
-            props.colorScheme === 'blue'
+            props.colorScheme === 'black'
                 ? {
-                      backgroundColor: 'blue.600',
-                      color: 'white',
-                      _hover: {bg: 'blue.700', _disabled: {bg: 'blue.300'}},
-                      _active: {bg: 'blue.800'},
-                      _disabled: {bg: 'blue.300'}
+                      backgroundColor: 'white',
+                      color: 'black',
+                      textTransform: 'uppercase',
+                      border: '4px solid black',
+                      borderRadius: '0',
+                      _hover: {
+                          backgroundColor:'black',
+                          color:'white', 
+                          bg: 'black', 
+                          _disabled: {
+                              bg: 'black.100'
+                            }
+                        },
+                      _active: {bg: 'yellow.800'},
+                      _disabled: {bg: 'yellow.300'}
                   }
                 : {},
         outline: (props) =>
             props.colorScheme === 'black'
-                ? {color: 'gray.900', _hover: {bg: 'gray.50'}, borderColor: 'gray.200'}
-                : {color: 'blue.600', _hover: {bg: 'gray.50'}},
+                ? {
+                    color: 'black.900', 
+                    _hover: {bg: 'black.50'}, 
+                    textTransform: 'uppercase',
+                    border: '1px solid black',
+                    borderRadius: '0',
+                    borderColor: 'black.200'
+                }
+                : {color: 'black.600', _hover: {bg: 'black.50'}},
         footer: {
             fontSize: 'sm',
             backgroundColor: 'gray.100',
@@ -33,7 +50,7 @@ export default {
             paddingRight: 3
         },
         link: (props) => ({
-            color: props.colorScheme === 'red' ? 'red.500' : 'blue.600',
+            color: props.colorScheme === 'red' ? 'red.500' : 'yellow.600',
             fontWeight: 'normal',
             minWidth: '1em',
             lineHeight: 4
@@ -72,6 +89,6 @@ export default {
         }
     },
     defaultProps: {
-        colorScheme: 'blue'
+        colorScheme: 'black'
     }
 }

@@ -51,12 +51,12 @@ const ProductViewHeader = ({name, price, currency, category}) => {
 
             {/* Title */}
             <Skeleton isLoaded={name}>
-                <Heading fontSize="2xl">{`${name}`}</Heading>
+                <Heading fontSize="36px" fontWeight="normal" color="#47525E" >{`${name}`}</Heading>
             </Skeleton>
 
             {/* Price */}
-            <Skeleton isLoaded={price} width={32}>
-                <Text fontWeight="bold" fontSize="md" aria-label="price">
+            <Skeleton isLoaded={price} width="100%">
+                <Text fontSize="58px" aria-label="price">
                     {intl.formatNumber(price, {
                         style: 'currency',
                         currency: currency || DEFAULT_CURRENCY
