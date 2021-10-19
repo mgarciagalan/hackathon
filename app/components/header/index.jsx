@@ -49,6 +49,10 @@ import {navLinks, messages} from '../../pages/account/constant'
 import useNavigation from '../../hooks/use-navigation'
 import LoadingSpinner from '../loading-spinner'
 
+import {
+    LogoElMontaoMin
+} from '../custom-icons'
+
 const ENTER_KEY = 'Enter'
 
 const IconButtonWithRegistration = withRegistration(IconButton)
@@ -117,7 +121,6 @@ const Header = ({
             <Box {...styles.content}>
                 {showLoading && <LoadingSpinner wrapperStyles={{height: '100vh'}} />}
                 <Flex wrap="wrap" alignItems={['baseline', 'baseline', 'baseline', 'center']}>
-                    <img src='../../assets/png/logo-el-montao.png' />
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.menu',
@@ -134,8 +137,8 @@ const Header = ({
                             id: 'header.button.assistive_msg.logo',
                             defaultMessage: 'Logo'
                         })}
-                        icon={<BrandLogo {...styles.logo} />}
-                        {...styles.icons}
+                        icon={<LogoElMontaoMin {...styles.logo} />}
+                        {...styles.logoBtn}
                         variant="unstyled"
                         onClick={onLogoClick}
                     />

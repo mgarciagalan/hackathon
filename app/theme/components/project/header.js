@@ -19,8 +19,8 @@ export default {
             marginRight: 'auto',
             paddingLeft: [4, 4, 6, 8],
             paddingRight: [4, 4, 6, 8],
-            paddingTop: [1, 1, 2, 4],
-            paddingBottom: [3, 3, 2, 4]
+            paddingTop: [1, 1, 2, 1],
+            paddingBottom: [3, 3, 2, 1]
         },
         searchContainer: {
             order: [2, 2, 2, 'inherit'],
@@ -32,8 +32,12 @@ export default {
             flex: '1'
         },
         logo: {
-            width: [8, 8, 8, 12],
-            height: [6, 6, 6, 8]
+            width: [8, 10, 12, 20],
+            height: [6, 10, 12, 20]
+        },
+        logoBtn: {
+            width: [8, 10, 12, 20],
+            height: [6, 10, 12, 20]
         },
         icons: {
             marginBottom: [1, 1, 2, 0]
