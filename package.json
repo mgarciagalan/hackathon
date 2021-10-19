@@ -28,7 +28,7 @@
         },
         {
           "path": "ocapi",
-          "host": "zzrf-001.sandbox.us01.dx.commercecloud.salesforce.com"
+          "host": "zzte-018.sandbox.us02.dx.commercecloud.salesforce.com"
         },
         {
           "path": "einstein",
