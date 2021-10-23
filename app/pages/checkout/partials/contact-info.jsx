@@ -123,18 +123,7 @@ const ContactInfo = () => {
 
                             <Stack spacing={3}>
                                 <Button type="submit">
-                                    {!showPasswordField ? (
-                                        <FormattedMessage defaultMessage="Checkout as guest" />
-                                    ) : (
-                                        <FormattedMessage defaultMessage="Log in" />
-                                    )}
-                                </Button>
-                                <Button variant="outline" onClick={toggleGuestCheckout}>
-                                    {!showPasswordField ? (
-                                        <FormattedMessage defaultMessage="Already have an account? Log in" />
-                                    ) : (
-                                        <FormattedMessage defaultMessage="Checkout as guest" />
-                                    )}
+                                    <FormattedMessage defaultMessage="Checkout as guest" />
                                 </Button>
                             </Stack>
                         </Stack>
