@@ -164,7 +164,11 @@ const ProductDetail = ({category, product, isLoading}) => {
                     isProductLoading={isLoading}
                     isCustomerProductListLoading={!wishlist.isInitialized}
                 />
-
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: product?.longDescription
+                    }}
+                />
                 {/* Information Accordion */}
                 <Stack direction="row" spacing={[0, 0, 0, 16]}>
                     <Accordion allowMultiple allowToggle maxWidth={'896px'} flex={[1, 1, 1, 5]}>
