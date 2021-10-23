@@ -25,7 +25,7 @@ import {
     Text,
     Divider,
     useDisclosure,
-    useMediaQuery
+    useMediaQuery,
 } from '@chakra-ui/react'
 
 import useBasket from '../../commerce-api/hooks/useBasket'
@@ -41,7 +41,7 @@ import {
     HamburgerIcon,
     ChevronDownIcon,
     WishlistIcon,
-    SignoutIcon
+    SignoutIcon,
 } from '../icons'
 
 import {noop} from '../../utils/utils'
@@ -102,7 +102,7 @@ const Header = ({
 
     const keyMap = {
         Escape: () => onClose(),
-        Enter: () => onOpen()
+        Enter: () => onOpen(),
     }
 
     const handleIconsMouseLeave = () => {
@@ -117,11 +117,11 @@ const Header = ({
             <Box {...styles.content}>
                 {showLoading && <LoadingSpinner wrapperStyles={{height: '100vh'}} />}
                 <Flex wrap="wrap" alignItems={['baseline', 'baseline', 'baseline', 'center']}>
-                    <img src='../../assets/png/logo-el-montao.png' />
+                    <img src="app\assets\png\logo-el-montao.png" />
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.menu',
-                            defaultMessage: 'Menu'
+                            defaultMessage: 'Menu',
                         })}
                         icon={<HamburgerIcon />}
                         variant="unstyled"
@@ -132,7 +132,7 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.logo',
-                            defaultMessage: 'Logo'
+                            defaultMessage: 'Logo',
                         })}
                         icon={<BrandLogo {...styles.logo} />}
                         {...styles.icons}
@@ -144,7 +144,7 @@ const Header = ({
                         <Search
                             placeholder={intl.formatMessage({
                                 id: 'header.search.field.value.placeholder',
-                                defaultMessage: 'Search for products...'
+                                defaultMessage: 'Search for products...',
                             })}
                             {...styles.search}
                         />
@@ -159,7 +159,7 @@ const Header = ({
                         onClick={onMyAccountClick}
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.my_account',
-                            defaultMessage: 'My account'
+                            defaultMessage: 'My account',
                         })}
                     />
 
@@ -199,7 +199,7 @@ const Header = ({
                                 <PopoverHeader>
                                     <Text>
                                         {intl.formatMessage({
-                                            defaultMessage: 'My Account'
+                                            defaultMessage: 'My Account',
                                         })}
                                     </Text>
                                 </PopoverHeader>
@@ -229,7 +229,7 @@ const Header = ({
                                             <SignoutIcon boxSize={5} {...styles.signoutIcon} />
                                             <Text as="span" {...styles.signoutText}>
                                                 {intl.formatMessage({
-                                                    defaultMessage: 'Log out'
+                                                    defaultMessage: 'Log out',
                                                 })}
                                             </Text>
                                         </Flex>
@@ -240,7 +240,7 @@ const Header = ({
                     )}
                     <IconButtonWithRegistration
                         aria-label={intl.formatMessage({
-                            defaultMessage: 'Wishlist'
+                            defaultMessage: 'Wishlist',
                         })}
                         icon={<WishlistIcon />}
                         variant="unstyled"
@@ -250,7 +250,7 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.my_cart',
-                            defaultMessage: 'My cart'
+                            defaultMessage: 'My cart',
                         })}
                         icon={
                             <>
@@ -281,8 +281,8 @@ Header.propTypes = {
     onMyCartClick: PropTypes.func,
     searchInputRef: PropTypes.oneOfType([
         PropTypes.func,
-        PropTypes.shape({current: PropTypes.elementType})
-    ])
+        PropTypes.shape({current: PropTypes.elementType}),
+    ]),
 }
 
 export default Header

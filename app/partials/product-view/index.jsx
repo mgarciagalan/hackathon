@@ -51,7 +51,7 @@ const ProductViewHeader = ({name, price, currency, category}) => {
 
             {/* Title */}
             <Skeleton isLoaded={name}>
-                <Heading fontSize="36px" fontWeight="normal" color="#47525E" >{`${name}`}</Heading>
+                <Heading fontSize="36px" fontWeight="normal" color="#47525E">{`${name}`}</Heading>
             </Skeleton>
 
             {/* Price */}
