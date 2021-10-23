@@ -7,12 +7,15 @@
 import React, {forwardRef} from 'react'
 import {Icon, useTheme} from '@chakra-ui/react'
 
-
 import LogoMin from '../../assets/custom-svg/logo-el-montao-min.svg'
+import LogoHorizontal from '../../assets/custom-svg/logo-el-montao-horizontal.svg'
+import LogoTexto from '../../assets/custom-svg/logo-el-montao-texto.svg'
 
 // TODO: We're hardcoding the `viewBox` for these imported SVGs temporarily as the
 // SVG loader plugin is not properly providing us the symbol data on the client side.
-LogoMin.viewBox = LogoMin.viewBox || '0 0 46 32'
+LogoMin.viewBox = LogoMin.viewBox || '0 0 46 46'
+LogoHorizontal.viewBox = LogoHorizontal.viewBox || '0 0 48 32'
+LogoTexto.viewBox = LogoTexto.viewBox || '0 0 46 32'
 
 /**
  * A helper for creating a Chakra-wrapped icon from our own SVG imports via sprite sheet.
@@ -41,3 +44,5 @@ const icon = (name, passProps) => {
 // For non-square SVGs, we can use the symbol data from the import to set the
 // proper viewBox attribute on the Icon wrapper.
 export const LogoElMontaoMin = icon('logo-el-montao-min', {viewBox: LogoMin.viewBox})
+export const LogoElMontaoHorizontal = icon('logo-el-montao-horizontal', {viewBox: LogoHorizontal.viewBox})
+export const LogoElMontaoTexto = icon('logo-el-montao-texto', {viewBox: LogoTexto.viewBox})

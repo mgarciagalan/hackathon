@@ -32,12 +32,14 @@ export default {
             flex: '1'
         },
         logo: {
-            width: [8, 10, 12, 20],
-            height: [6, 10, 12, 20]
+            width: [10, 10, 12, 20],
+            height: [10, 10, 12, 20]
         },
         logoBtn: {
-            width: [8, 10, 12, 20],
-            height: [6, 10, 12, 20]
+            width: [10, 10, 12, 20],
+            height: [10, 10, 12, 20],
+            flex: '1',
+            alignSelf: ['self-start', 'self-start', 'self-start', 'self-start']
         },
         icons: {
             marginBottom: [1, 1, 2, 0]
@@ -85,5 +87,5 @@ export default {
             marginRight: 2
         }
     },
-    parts: ['container', 'content', 'searchContainer', 'bodyContainer', 'logo', 'icons', 'signout']
+    parts: ['container', 'content', 'searchContainer', 'bodyContainer', 'logo', 'logoBtn', 'icons', 'signout']
 }
