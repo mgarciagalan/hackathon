@@ -1,6 +1,8 @@
 .nyc_output
 build.tar
 
+.vscode
+
 coverage
 tests/reports
 tests/screenshots
