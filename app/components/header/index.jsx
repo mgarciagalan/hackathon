@@ -25,7 +25,7 @@ import {
     Text,
     Divider,
     useDisclosure,
-    useMediaQuery,
+    useMediaQuery
 } from '@chakra-ui/react'
 
 import useBasket from '../../commerce-api/hooks/useBasket'
@@ -40,7 +40,7 @@ import {
     HamburgerIcon,
     ChevronDownIcon,
     WishlistIcon,
-    SignoutIcon,
+    SignoutIcon
 } from '../icons'
 
 import {noop} from '../../utils/utils'
@@ -48,9 +48,7 @@ import {navLinks, messages} from '../../pages/account/constant'
 import useNavigation from '../../hooks/use-navigation'
 import LoadingSpinner from '../loading-spinner'
 
-import {
-    LogoElMontaoMin
-} from '../custom-icons'
+import {LogoElMontaoMin} from '../custom-icons'
 
 import {HideOnDesktop, HideOnMobile} from '../responsive'
 
@@ -107,7 +105,7 @@ const Header = ({
 
     const keyMap = {
         Escape: () => onClose(),
-        Enter: () => onOpen(),
+        Enter: () => onOpen()
     }
 
     const handleIconsMouseLeave = () => {
@@ -125,7 +123,7 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.menu',
-                            defaultMessage: 'Menu',
+                            defaultMessage: 'Menu'
                         })}
                         icon={<HamburgerIcon />}
                         variant="unstyled"
@@ -136,7 +134,7 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.logo',
-                            defaultMessage: 'Logo',
+                            defaultMessage: 'Logo'
                         })}
                         icon={<LogoElMontaoMin {...styles.logo} />}
                         {...styles.logoBtn}
@@ -148,7 +146,7 @@ const Header = ({
                         <Search
                             placeholder={intl.formatMessage({
                                 id: 'header.search.field.value.placeholder',
-                                defaultMessage: 'Search for products...',
+                                defaultMessage: 'Search for products...'
                             })}
                             {...styles.search}
                         />
@@ -205,7 +203,7 @@ const Header = ({
                                 <PopoverHeader>
                                     <Text>
                                         {intl.formatMessage({
-                                            defaultMessage: 'My Account',
+                                            defaultMessage: 'My Account'
                                         })}
                                     </Text>
                                 </PopoverHeader>
@@ -235,7 +233,7 @@ const Header = ({
                                             <SignoutIcon boxSize={5} {...styles.signoutIcon} />
                                             <Text as="span" {...styles.signoutText}>
                                                 {intl.formatMessage({
-                                                    defaultMessage: 'Log out',
+                                                    defaultMessage: 'Log out'
                                                 })}
                                             </Text>
                                         </Flex>
@@ -258,7 +256,7 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.my_cart',
-                            defaultMessage: 'My cart',
+                            defaultMessage: 'My cart'
                         })}
                         icon={
                             <>
@@ -289,8 +287,8 @@ Header.propTypes = {
     onMyCartClick: PropTypes.func,
     searchInputRef: PropTypes.oneOfType([
         PropTypes.func,
-        PropTypes.shape({current: PropTypes.elementType}),
-    ]),
+        PropTypes.shape({current: PropTypes.elementType})
+    ])
 }
 
 export default Header

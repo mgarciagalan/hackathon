@@ -19,7 +19,7 @@ import {
     Stack,
     useMultiStyleConfig,
     IconButton,
-    Flex,
+    Flex
 } from '@chakra-ui/react'
 
 // Hooks
@@ -90,7 +90,7 @@ const ProductTile = (props) => {
                             {isInWishlist ? (
                                 <IconButton
                                     aria-label={intl.formatMessage({
-                                        defaultMessage: 'wishlist-solid',
+                                        defaultMessage: 'wishlist-solid'
                                     })}
                                     icon={<WishlistSolidIcon />}
                                     variant="unstyled"
@@ -104,7 +104,7 @@ const ProductTile = (props) => {
                             ) : (
                                 <IconButtonWithRegistration
                                     aria-label={intl.formatMessage({
-                                        defaultMessage: 'wishlist',
+                                        defaultMessage: 'wishlist'
                                     })}
                                     icon={<WishlistIcon />}
                                     variant="unstyled"
@@ -120,7 +120,13 @@ const ProductTile = (props) => {
             </Box>
 
             {/* Title */}
-            <Text {...styles.title} fontWeight="bold" aria-label="product name" height="48px">
+            <Text
+                {...styles.title}
+                fontWeight="bold"
+                aria-label="product name"
+                height="auto"
+                minHeight="48px"
+            >
                 {productName}
             </Text>
 
@@ -161,7 +167,7 @@ ProductTile.propTypes = {
      */
     onRemoveWishlistClick: PropTypes.func,
     isWishlistLoading: PropTypes.bool,
-    showHeart: PropTypes.bool,
+    showHeart: PropTypes.bool
 }
 
 export default ProductTile

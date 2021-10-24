@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import React from 'react'
+import React, {useState} from 'react'
 import {
     Text,
     Stack,
@@ -78,44 +78,54 @@ const Refinements = ({filters, toggleFilter, selectedFilters, isLoading}) => {
                         // Render the appropriate component for the refinement type, fallback to checkboxes
                         const Values = componentMap[filter.attributeId] || CheckboxRefinements
                         const selectedFiltersArray = selectedFilters?.[filter.attributeId]
-                        if (filter.values) {
+
+                        const [useExpanded, setUseExpanded] = useState(false)
+
+                        if (filter.values && filter.attributeId != 'c_refinementColor') {
                             return (
                                 <Stack key={filter.attributeId} divider={<Divider />}>
                                     <AccordionItem
-                                        paddingTop={idx !== 0 ? 6 : 0}
+                                        backgroundColor={useExpanded ? '#FBFBFC' : 'white'}
+                                        paddingTop={useExpanded ? 0 : 4}
                                         borderBottom={
                                             idx === filters.length - 1
                                                 ? '1px solid gray.200'
                                                 : 'none'
                                         }
-                                        paddingBottom={6}
+                                        paddingBottom={4}
                                         borderTop={idx === 0 && 'none'}
                                     >
-                                        {({isExpanded}) => (
-                                            <>
-                                                <AccordionButton
-                                                    paddingTop={0}
-                                                    paddingBottom={isExpanded ? 2 : 0}
-                                                >
-                                                    <Text
-                                                        flex="1"
-                                                        textAlign="left"
-                                                        fontSize="md"
-                                                        fontWeight={600}
+                                        {({isExpanded}) => {
+                                            setUseExpanded(isExpanded)
+                                            return (
+                                                <>
+                                                    <AccordionButton
+                                                        backgroundColor={'white'}
+                                                        paddingBottom={isExpanded ? 6 : 0}
+                                                        paddingTop={!isExpanded ? 0 : 6}
+                                                        borderTop={'1px solid gray.200'}
+                                                        borderBottom={'1px solid gray.200'}
                                                     >
-                                                        {filter.label}
-                                                    </Text>
-                                                    <AccordionIcon />
-                                                </AccordionButton>
-                                                <AccordionPanel paddingLeft={0}>
-                                                    <Values
-                                                        selectedFilters={selectedFiltersArray}
-                                                        filter={filter}
-                                                        toggleFilter={toggleFilter}
-                                                    />
-                                                </AccordionPanel>
-                                            </>
-                                        )}
+                                                        <Text
+                                                            flex="1"
+                                                            textAlign="left"
+                                                            fontSize="md"
+                                                            fontWeight={600}
+                                                        >
+                                                            {filter.label}
+                                                        </Text>
+                                                        <AccordionIcon textColor="green" />
+                                                    </AccordionButton>
+                                                    <AccordionPanel paddingRight={0}>
+                                                        <Values
+                                                            selectedFilters={selectedFiltersArray}
+                                                            filter={filter}
+                                                            toggleFilter={toggleFilter}
+                                                        />
+                                                    </AccordionPanel>
+                                                </>
+                                            )
+                                        }}
                                     </AccordionItem>
                                 </Stack>
                             )

@@ -119,7 +119,7 @@ Error.propTypes = {
     // JavaScript error stack trace: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack
     stack: PropTypes.string,
     // HTTP status code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
-    status: PropTypes.number,
+    status: PropTypes.number
 }
 
 export default Error

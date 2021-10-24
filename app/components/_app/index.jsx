@@ -61,7 +61,7 @@ export const defaultLocaleMessages = defineMessages({
     'fr-FR': {defaultMessage: 'French (France)'},
     'it-IT': {defaultMessage: 'Italian (Italy)'},
     'zh-CN': {defaultMessage: 'Chinese (China)'},
-    'ja-JP': {defaultMessage: 'Japanese (Japan)'},
+    'ja-JP': {defaultMessage: 'Japanese (Japan)'}
 })
 
 const App = (props) => {
@@ -256,7 +256,7 @@ App.getProps = async ({api}) => {
             const {locale} = api.getConfig()
 
             return [locale]
-        },
+        }
     })
 
     // Login as `guest` to get session.
@@ -267,8 +267,8 @@ App.getProps = async ({api}) => {
         parameters: {
             id: DEFAULT_ROOT_CATEGORY,
             levels: DEFAULT_NAV_DEPTH,
-            locale: localeConfig.app.targetLocale,
-        },
+            locale: localeConfig.app.targetLocale
+        }
     })
 
     if (rootCategory.isError) {
@@ -292,7 +292,7 @@ You can either follow this doc, https://sfdc.co/B4Z1m to enable it in business m
         targetLocale: localeConfig.app.targetLocale,
         defaultLocale: localeConfig.app.defaultLocale,
         messages: localeConfig.messages,
-        categories: categories,
+        categories: categories
     }
 }
 
@@ -302,7 +302,7 @@ App.propTypes = {
     defaultLocale: PropTypes.string,
     location: PropTypes.object,
     messages: PropTypes.object,
-    categories: PropTypes.object,
+    categories: PropTypes.object
 }
 
 export default App
