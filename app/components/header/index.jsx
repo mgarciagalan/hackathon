@@ -36,7 +36,6 @@ import Search from '../search'
 import withRegistration from '../../hoc/with-registration'
 import {
     AccountIcon,
-    BrandLogo,
     BasketIcon,
     HamburgerIcon,
     ChevronDownIcon,
@@ -48,6 +47,12 @@ import {noop} from '../../utils/utils'
 import {navLinks, messages} from '../../pages/account/constant'
 import useNavigation from '../../hooks/use-navigation'
 import LoadingSpinner from '../loading-spinner'
+
+import {
+    LogoElMontaoMin
+} from '../custom-icons'
+
+import {HideOnDesktop, HideOnMobile} from '../responsive'
 
 const ENTER_KEY = 'Enter'
 
@@ -117,7 +122,6 @@ const Header = ({
             <Box {...styles.content}>
                 {showLoading && <LoadingSpinner wrapperStyles={{height: '100vh'}} />}
                 <Flex wrap="wrap" alignItems={['baseline', 'baseline', 'baseline', 'center']}>
-                    <img src='../../assets/png/logo-el-montao.png' />
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.menu',
@@ -134,12 +138,12 @@ const Header = ({
                             id: 'header.button.assistive_msg.logo',
                             defaultMessage: 'Logo'
                         })}
-                        icon={<BrandLogo {...styles.logo} />}
-                        {...styles.icons}
+                        icon={<LogoElMontaoMin {...styles.logo} />}
+                        {...styles.logoBtn}
                         variant="unstyled"
                         onClick={onLogoClick}
                     />
-                    <Box {...styles.bodyContainer}>{children}</Box>
+                    <Box>{children}</Box>
                     <Box {...styles.searchContainer}>
                         <Search
                             placeholder={intl.formatMessage({
@@ -149,19 +153,21 @@ const Header = ({
                             {...styles.search}
                         />
                     </Box>
-                    <AccountIcon
-                        {...styles.accountIcon}
-                        tabIndex={0}
-                        onMouseOver={isDesktop ? onOpen : noop}
-                        onKeyDown={(e) => {
-                            e.key === ENTER_KEY ? onMyAccountClick() : noop
-                        }}
-                        onClick={onMyAccountClick}
-                        aria-label={intl.formatMessage({
-                            id: 'header.button.assistive_msg.my_account',
-                            defaultMessage: 'My account'
-                        })}
-                    />
+                    <HideOnMobile>
+                        <AccountIcon
+                            {...styles.accountIcon}
+                            tabIndex={0}
+                            onMouseOver={isDesktop ? onOpen : noop}
+                            onKeyDown={(e) => {
+                                e.key === ENTER_KEY ? onMyAccountClick() : noop
+                            }}
+                            onClick={onMyAccountClick}
+                            aria-label={intl.formatMessage({
+                                id: 'header.button.assistive_msg.my_account',
+                                defaultMessage: 'My account'
+                            })}
+                        />
+                    </HideOnMobile>
 
                     {customer.isRegistered && (
                         <Popover
@@ -238,15 +244,17 @@ const Header = ({
                             </PopoverContent>
                         </Popover>
                     )}
-                    <IconButtonWithRegistration
-                        aria-label={intl.formatMessage({
-                            defaultMessage: 'Wishlist'
-                        })}
-                        icon={<WishlistIcon />}
-                        variant="unstyled"
-                        {...styles.icons}
-                        onClick={onWishlistClick}
-                    />
+                    <HideOnMobile>
+                        <IconButtonWithRegistration
+                            aria-label={intl.formatMessage({
+                                defaultMessage: 'Wishlist'
+                            })}
+                            icon={<WishlistIcon />}
+                            variant="unstyled"
+                            {...styles.icons}
+                            onClick={onWishlistClick}
+                        />
+                    </HideOnMobile>
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.my_cart',

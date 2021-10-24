@@ -17,8 +17,8 @@ export default {
             height: 5
         },
         logo: {
-            width: 12,
-            height: 8
+            width: 16,
+            height: 12
         },
         socialsItem: {
             textAlign: 'center',
@@ -51,6 +51,11 @@ export default {
             marginLeft: 2,
             fontSize: 14,
             fontWeight: 'normal'
+        },
+        menuCat: {
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+            fontWeight: 400
         }
     },
     parts: [
@@ -61,6 +66,7 @@ export default {
         'localeSelector',
         'socials',
         'socialsItem',
-        'signout'
+        'signout',
+        'menuCat'
     ]
 }

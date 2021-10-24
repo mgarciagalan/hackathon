@@ -43,7 +43,11 @@ import {
 } from '@chakra-ui/react'
 import Link from '../../components/link'
 // Icons
-import {BrandLogo, LocationIcon, SignoutIcon, UserIcon} from '../icons'
+import {LocationIcon, SignoutIcon, UserIcon} from '../icons'
+
+import {
+    LogoElMontaoTexto
+} from '../custom-icons'
 
 // Others
 import {noop} from '../../utils/utils'
@@ -101,7 +105,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                     {/* Header Content */}
                     <DrawerHeader>
                         <IconButton
-                            icon={<BrandLogo {...styles.logo} />}
+                            icon={<LogoElMontaoTexto {...styles.logo} />}
                             variant="unstyled"
                             onClick={onLogoClick}
                         />
@@ -122,7 +126,8 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                                     itemsKey="categories"
                                     itemsFilter="c_showInMenu"
                                     fontSizes={FONT_SIZES}
-                                    fontWeights={FONT_WEIGHTS}
+                                    //fontWeights={FONT_WEIGHTS}
+                                    {...styles.menuCat}
                                     itemsBefore={({depth, item}) =>
                                         depth > 0 ? (
                                             [
@@ -132,7 +137,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                                                         as={Link}
                                                         to={categoryUrlBuilder(item)}
                                                         fontSize={FONT_SIZES[depth]}
-                                                        fontWeight={FONT_WEIGHTS[depth]}
+                                                        //fontWeight={FONT_WEIGHTS[depth]}
                                                         color="black"
                                                     >
                                                         {intl.formatMessage({
@@ -240,7 +245,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                                     </Link>
                                 )}
                             </Box>
-                            <Box {...styles.actionsItem}>
+                            {/* <Box {...styles.actionsItem}>
                                 <Link to={STORE_LOCATOR_HREF}>
                                     <HStack>
                                         <LocationIcon {...styles.icon} />{' '}
@@ -252,7 +257,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                                         </Text>
                                     </HStack>
                                 </Link>
-                            </Box>
+                            </Box> */}
                             <Box>
                                 <LocaleSelector
                                     {...styles.localeSelector}
@@ -267,10 +272,10 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                             </Box>
                         </VStack>
 
-                        <DrawerSeparator />
+                        {/* <DrawerSeparator /> */}
 
                         {/* Support Links */}
-                        <NestedAccordion
+                        {/* <NestedAccordion
                             allowMultiple={true}
                             // NOTE: Modify this content and builder as you see fit.
                             urlBuilder={() => '/'}
@@ -356,7 +361,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                             }}
                         />
 
-                        <DrawerSeparator />
+                        <DrawerSeparator /> */}
                     </DrawerBody>
 
                     <DrawerFooter>

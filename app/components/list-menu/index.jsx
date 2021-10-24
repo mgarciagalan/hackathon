@@ -123,8 +123,10 @@ const ListMenuContent = ({maxColumns, items, itemsKey, onClose, initialFocusRef}
                                 href: categoryUrlBuilder(item, locale),
                                 text: name,
                                 styles: {
-                                    fontSize: 'md',
-                                    marginBottom: 2
+                                    fontSize: 'sm',
+                                    marginBottom: 2,
+                                    fontWeight: 400,
+                                    textTransform: 'capitalize',
                                 }
                             }
 
