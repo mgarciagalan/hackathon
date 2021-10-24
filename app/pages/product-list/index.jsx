@@ -11,7 +11,7 @@ import {useHistory, useParams} from 'react-router-dom'
 import {FormattedMessage, useIntl} from 'react-intl'
 import {Helmet} from 'react-helmet'
 
-import './product-list.css'
+// import './product-list.css'
 
 // Components
 import {
@@ -251,6 +251,7 @@ const ProductList = (props) => {
                 <meta name="description" content={category?.pageDescription} />
                 <meta name="keywords" content={category?.pageKeywords} />
             </Helmet>
+
             {showNoResults ? (
                 <EmptySearchResults searchQuery={searchQuery} category={category} />
             ) : (
@@ -265,15 +266,6 @@ const ProductList = (props) => {
                         spacing={4}
                         marginBottom={6}
                     >
-                        <Flex align="left" width="287px">
-                            <PageHeader
-                                searchQuery={searchQuery}
-                                category={category}
-                                productSearchResult={productSearchResult}
-                                isLoading={isLoading}
-                            />
-                        </Flex>
-
                         <Box flex={1} paddingTop={'45px'}>
                             <SelectedRefinements
                                 filters={productSearchResult?.refinements}
@@ -281,69 +273,9 @@ const ProductList = (props) => {
                                 selectedFilterValues={productSearchResult?.selectedRefinements}
                             />
                         </Box>
-                        <Box paddingTop={'45px'}>
-                            <Sort
-                                sortUrls={sortUrls}
-                                productSearchResult={productSearchResult}
-                                basePath={basePath}
-                            />
-                        </Box>
                     </Stack>
 
                     <HideOnDesktop>
-                        <Stack spacing={6}>
-                            <PageHeader
-                                searchQuery={searchQuery}
-                                category={category}
-                                productSearchResult={productSearchResult}
-                                isLoading={isLoading}
-                            />
-                            <Stack
-                                display={{base: 'flex', md: 'none'}}
-                                direction="row"
-                                justify="flex-start"
-                                align="center"
-                                spacing={1}
-                                height={12}
-                                borderColor="gray.100"
-                            >
-                                <Flex align="center">
-                                    <Button
-                                        fontSize="sm"
-                                        colorScheme="black"
-                                        variant="outline"
-                                        marginRight={2}
-                                        display="inline-flex"
-                                        leftIcon={<FilterIcon boxSize={5} />}
-                                        onClick={onOpen}
-                                    >
-                                        <FormattedMessage defaultMessage="Filter" />
-                                    </Button>
-                                </Flex>
-                                <Flex align="center">
-                                    <Button
-                                        className="button-testing"
-                                        maxWidth="245px"
-                                        fontSize="sm"
-                                        marginRight={2}
-                                        colorScheme="black"
-                                        variant="outline"
-                                        display="inline-flex"
-                                        rightIcon={<ChevronDownIcon boxSize={5} />}
-                                        onClick={() => setSortOpen(true)}
-                                    >
-                                        {formatMessage(
-                                            {
-                                                defaultMessage: 'Sort By: {sortOption}',
-                                            },
-                                            {
-                                                sortOption: selectedSortingOptionLabel?.label,
-                                            }
-                                        )}
-                                    </Button>
-                                </Flex>
-                            </Stack>
-                        </Stack>
                         <Box marginBottom={4}>
                             <SelectedRefinements
                                 filters={productSearchResult?.refinements}
@@ -373,7 +305,7 @@ const ProductList = (props) => {
                                     ? new Array(searchParams.limit)
                                           .fill(0)
                                           .map((value, index) => (
-                                              <ProductTileSkeleton key={index} />
+                                              <ProductTileSkeleton key={index} showHeart={false} />
                                           ))
                                     : productSearchResult.hits.map((productSearchItem) => {
                                           const productId = productSearchItem.productId
@@ -382,6 +314,7 @@ const ProductList = (props) => {
                                           )
                                           return (
                                               <ProductTile
+                                                  showHeart={false}
                                                   isWishlistLoading={wishlistLoading.includes(
                                                       productId
                                                   )}
@@ -609,6 +542,7 @@ ProductList.propTypes = {
     searchQuery: PropTypes.string,
     onAddToWishlistClick: PropTypes.func,
     onRemoveWishlistClick: PropTypes.func,
+    showHeart: PropTypes.bool,
 }
 
 export default ProductList

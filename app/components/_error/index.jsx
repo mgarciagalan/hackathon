@@ -30,7 +30,7 @@ const Error = (props) => {
             <Helmet>
                 <title>{title}</title>
             </Helmet>
-            <Box as="header" width="full" boxShadow="base" backgroudColor="white">
+            <Box as="header" width="full" boxShadow="base" backgroundColor="white">
                 <Box
                     maxWidth="container.xxxl"
                     marginLeft="auto"
@@ -119,7 +119,7 @@ Error.propTypes = {
     // JavaScript error stack trace: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack
     stack: PropTypes.string,
     // HTTP status code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
-    status: PropTypes.number
+    status: PropTypes.number,
 }
 
 export default Error

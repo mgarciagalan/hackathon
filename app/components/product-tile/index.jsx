@@ -7,7 +7,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import {WishlistIcon, WishlistSolidIcon} from '../icons'
+import {WishlistIcon, WishlistSolidIcon, AlergicIcon} from '../icons'
 
 // Components
 import {
@@ -18,7 +18,8 @@ import {
     Text,
     Stack,
     useMultiStyleConfig,
-    IconButton
+    IconButton,
+    Flex,
 } from '@chakra-ui/react'
 
 // Hooks
@@ -65,6 +66,7 @@ const ProductTile = (props) => {
         onRemoveWishlistClick,
         isInWishlist,
         isWishlistLoading,
+        showHeart,
         ...rest
     } = props
     const {currency, image, price, productName} = productSearchItem
@@ -81,49 +83,59 @@ const ProductTile = (props) => {
                 <AspectRatio {...styles.image} ratio={1}>
                     <Img alt={image.alt} src={image.disBaseLink} />
                 </AspectRatio>
-                {onAddToWishlistClick && onRemoveWishlistClick && (
-                    <>
-                        {isInWishlist ? (
-                            <IconButton
-                                aria-label={intl.formatMessage({
-                                    defaultMessage: 'wishlist-solid'
-                                })}
-                                icon={<WishlistSolidIcon />}
-                                variant="unstyled"
-                                {...styles.iconButton}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    if (isWishlistLoading) return
-                                    onRemoveWishlistClick()
-                                }}
-                            />
-                        ) : (
-                            <IconButtonWithRegistration
-                                aria-label={intl.formatMessage({
-                                    defaultMessage: 'wishlist'
-                                })}
-                                icon={<WishlistIcon />}
-                                variant="unstyled"
-                                {...styles.iconButton}
-                                onClick={() => {
-                                    if (isWishlistLoading) return
-                                    onAddToWishlistClick()
-                                }}
-                            />
-                        )}
-                    </>
-                )}
+                {onAddToWishlistClick &&
+                    onRemoveWishlistClick &&
+                    (showHeart === undefined || showHeart == true || showHeart === null) && (
+                        <>
+                            {isInWishlist ? (
+                                <IconButton
+                                    aria-label={intl.formatMessage({
+                                        defaultMessage: 'wishlist-solid',
+                                    })}
+                                    icon={<WishlistSolidIcon />}
+                                    variant="unstyled"
+                                    {...styles.iconButton}
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        if (isWishlistLoading) return
+                                        onRemoveWishlistClick()
+                                    }}
+                                />
+                            ) : (
+                                <IconButtonWithRegistration
+                                    aria-label={intl.formatMessage({
+                                        defaultMessage: 'wishlist',
+                                    })}
+                                    icon={<WishlistIcon />}
+                                    variant="unstyled"
+                                    {...styles.iconButton}
+                                    onClick={() => {
+                                        if (isWishlistLoading) return
+                                        onAddToWishlistClick()
+                                    }}
+                                />
+                            )}
+                        </>
+                    )}
             </Box>
 
             {/* Title */}
-            <Text {...styles.title} aria-label="product name">
+            <Text {...styles.title} fontWeight="bold" aria-label="product name" height="48px">
                 {productName}
             </Text>
 
             {/* Price */}
-            <Text {...styles.price} aria-label="price">
-                {intl.formatNumber(price, {style: 'currency', currency})}
-            </Text>
+            <Box>
+                <Flex direction="row" align="center" justifyContent="space-between">
+                    <Text {...styles.price} aria-label="price">
+                        {intl.formatNumber(price, {style: 'currency', currency})}
+                    </Text>
+
+                    <Text {...styles.price} aria-label="allergic">
+                        <AlergicIcon />
+                    </Text>
+                </Flex>
+            </Box>
         </Link>
     )
 }
@@ -148,7 +160,8 @@ ProductTile.propTypes = {
      * Callback function to be invoked when the user removes item to wishlist
      */
     onRemoveWishlistClick: PropTypes.func,
-    isWishlistLoading: PropTypes.bool
+    isWishlistLoading: PropTypes.bool,
+    showHeart: PropTypes.bool,
 }
 
 export default ProductTile
