@@ -11,6 +11,8 @@ import {ChakraProvider} from '@chakra-ui/react'
 // Removes focus for non-keyboard interactions for the whole application
 import 'focus-visible/dist/focus-visible'
 
+import Fonts from "../fonts"
+
 import theme from '../../theme'
 import CommerceAPI from '../../commerce-api'
 import {
@@ -63,7 +65,10 @@ const AppConfig = ({children, locals = {}}) => {
             <CustomerProvider value={{customer, setCustomer}}>
                 <BasketProvider value={{basket, setBasket}}>
                     <CustomerProductListsProvider>
-                        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+                        <ChakraProvider theme={theme}>
+                            <Fonts />
+                            {children}
+                        </ChakraProvider>
                     </CustomerProductListsProvider>
                 </BasketProvider>
             </CustomerProvider>
