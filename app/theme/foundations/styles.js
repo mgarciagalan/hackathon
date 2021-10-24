@@ -16,6 +16,11 @@ export default {
         '.react-target': {
             display: 'flex',
             minHeight: '100vh'
+        },
+        '.mvc-shipping-address':{
+            '> div[role=group]':{
+                'display': 'none'
+            }
         }
     }
 }
