@@ -13,7 +13,10 @@ export default {
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
             paddingLeft: 4,
-            display: {base: 'none', lg: 'flex'}
+            display: {base: 'none', lg: 'flex'},
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+            fontWeight: 400
         },
         stackContainer: {
             whiteSpace: 'nowrap',

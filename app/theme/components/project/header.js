@@ -19,8 +19,8 @@ export default {
             marginRight: 'auto',
             paddingLeft: [4, 4, 6, 8],
             paddingRight: [4, 4, 6, 8],
-            paddingTop: [1, 1, 2, 4],
-            paddingBottom: [3, 3, 2, 4]
+            paddingTop: [1, 1, 2, 1],
+            paddingBottom: [3, 3, 2, 1]
         },
         searchContainer: {
             order: [2, 2, 2, 'inherit'],
@@ -32,8 +32,14 @@ export default {
             flex: '1'
         },
         logo: {
-            width: [8, 8, 8, 12],
-            height: [6, 6, 6, 8]
+            width: [10, 10, 12, 20],
+            height: [10, 10, 12, 20]
+        },
+        logoBtn: {
+            width: [10, 10, 12, 20],
+            height: [10, 10, 12, 20],
+            flex: '1',
+            alignSelf: ['self-start', 'self-start', 'self-start', 'self-start']
         },
         icons: {
             marginBottom: [1, 1, 2, 0]
@@ -81,5 +87,5 @@ export default {
             marginRight: 2
         }
     },
-    parts: ['container', 'content', 'searchContainer', 'bodyContainer', 'logo', 'icons', 'signout']
+    parts: ['container', 'content', 'searchContainer', 'bodyContainer', 'logo', 'logoBtn', 'icons', 'signout']
 }
