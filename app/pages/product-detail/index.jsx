@@ -164,11 +164,15 @@ const ProductDetail = ({category, product, isLoading}) => {
                     isProductLoading={isLoading}
                     isCustomerProductListLoading={!wishlist.isInitialized}
                 />
-
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: product?.longDescription
+                    }}
+                />
                 {/* Information Accordion */}
                 <Stack direction="row" spacing={[0, 0, 0, 16]}>
                     <Accordion allowMultiple allowToggle maxWidth={'896px'} flex={[1, 1, 1, 5]}>
-                        {/* Details */}
+                        {/* Details 
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -188,8 +192,9 @@ const ProductDetail = ({category, product, isLoading}) => {
                                 />
                             </AccordionPanel>
                         </AccordionItem>
+                        */}
 
-                        {/* Size & Fit */}
+                        {/* Size & Fit 
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -204,9 +209,9 @@ const ProductDetail = ({category, product, isLoading}) => {
                             <AccordionPanel mb={6} mt={4}>
                                 {formatMessage({defaultMessage: 'Coming Soon'})}
                             </AccordionPanel>
-                        </AccordionItem>
-
-                        {/* Reviews */}
+                        </AccordionItem>*/}
+                        
+                        {/* Reviews 
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -221,9 +226,9 @@ const ProductDetail = ({category, product, isLoading}) => {
                             <AccordionPanel mb={6} mt={4}>
                                 Coming Soon
                             </AccordionPanel>
-                        </AccordionItem>
+                        </AccordionItem>*/}
 
-                        {/* Questions */}
+                        {/* Questions 
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -238,7 +243,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                             <AccordionPanel mb={6} mt={4}>
                                 Coming Soon
                             </AccordionPanel>
-                        </AccordionItem>
+                        </AccordionItem>*/}
                     </Accordion>
                     <Box display={['none', 'none', 'none', 'block']} flex={4}></Box>
                 </Stack>
