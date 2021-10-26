@@ -129,12 +129,7 @@ export default function ShippingOptions() {
                                 )}
                             />
                         )}
-
-                        <Box>
-                            <Button variant="link" size="sm" rightIcon={<ChevronDownIcon />}>
-                                <FormattedMessage defaultMessage="Do you want to send this as a gift?" />
-                            </Button>
-                        </Box>
+                        
                         <Box>
                             <Container variant="form">
                                 <Button w="full" type="submit">
