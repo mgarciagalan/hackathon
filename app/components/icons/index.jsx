@@ -14,6 +14,7 @@ import {Icon, useTheme} from '@chakra-ui/react'
 // importing icon svg's.
 import '../../assets/svg/alert.svg'
 import '../../assets/svg/account.svg'
+import '../../assets/svg/allergic-leaf.svg'
 import '../../assets/svg/basket.svg'
 import '../../assets/svg/check.svg'
 import '../../assets/svg/check-circle.svg'
@@ -104,6 +105,7 @@ const icon = (name, passProps) => {
 export const AmexIcon = icon('cc-amex', {viewBox: AmexSymbol.viewBox})
 export const AlertIcon = icon('alert')
 export const AccountIcon = icon('account')
+export const AlergicIcon = icon('allergic-leaf')
 export const BrandLogo = icon('brand-logo', {viewBox: BrandLogoSymbol.viewBox})
 export const BasketIcon = icon('basket')
 export const CheckIcon = icon('check')

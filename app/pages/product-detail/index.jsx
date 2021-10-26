@@ -210,7 +210,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                                 {formatMessage({defaultMessage: 'Coming Soon'})}
                             </AccordionPanel>
                         </AccordionItem>*/}
-                        
+
                         {/* Reviews 
                         <AccordionItem>
                             <h2>

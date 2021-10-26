@@ -1,9 +1,9 @@
 import React from 'react'
-import { Global } from '@emotion/react'
+import {Global} from '@emotion/react'
 
 const Fonts = () => (
-  <Global
-    styles={`
+    <Global
+        styles={`
       @font-face {
         font-family: 'Agrandir-GrandHeavy';
         font-style: normal;
@@ -40,7 +40,7 @@ const Fonts = () => (
         src: url('mobify/bundle/development/static/fonts/Agrandir-WideLight.woff') format('woff');
       }
       `}
-  />
+    />
 )
 
 export default Fonts
