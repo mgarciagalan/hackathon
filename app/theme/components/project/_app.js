@@ -19,6 +19,9 @@ export default {
             position: 'sticky',
             top: 0,
             zIndex: theme.zIndices.sticky
+        },
+        plpHeaderWrapper: {
+            border: '1px solid gray'
         }
     },
     parts: ['container']

@@ -126,7 +126,7 @@ const ListMenuContent = ({maxColumns, items, itemsKey, onClose, initialFocusRef}
                                     fontSize: 'sm',
                                     marginBottom: 2,
                                     fontWeight: 400,
-                                    textTransform: 'capitalize',
+                                    textTransform: 'capitalize'
                                 }
                             }
 
