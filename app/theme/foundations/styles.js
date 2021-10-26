@@ -21,6 +21,9 @@ export default {
             '> div[role=group]':{
                 'display': 'none'
             }
+        },
+        '.billing-payment-checkout, .mvc-stack-address': {
+            display: 'none !important'
         }
     }
 }

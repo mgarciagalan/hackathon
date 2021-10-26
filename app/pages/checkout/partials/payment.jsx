@@ -85,7 +85,7 @@ const Payment = () => {
 
                     <Divider borderColor="gray.100" />
 
-                    <Stack spacing={2}>
+                    <Stack spacing={2} className="billing-payment-checkout">
                         <Heading as="h3" fontSize="md">
                             <FormattedMessage defaultMessage="Billing Address" />
                         </Heading>

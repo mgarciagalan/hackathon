@@ -70,7 +70,7 @@ export default function ShippingOptions() {
     return (
         <ToggleCard
             id="step-2"
-            title={formatMessage({defaultMessage: 'Shipping & Gift Options'})}
+            title={formatMessage({defaultMessage: 'To take in a restaurant or take home?'})}
             editing={step === 2}
             isLoading={form.formState.isSubmitting}
             disabled={selectedShippingMethod == null || !selectedShippingAddress}
