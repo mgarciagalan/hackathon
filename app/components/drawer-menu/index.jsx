@@ -165,6 +165,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
 
                         {/* Application Actions */}
                         <VStack align="stretch" spacing={0} {...styles.actions} px={0}>
+                            {/* 
                             <Box {...styles.actionsItem}>
                                 {customer.isRegistered ? (
                                     <NestedAccordion
@@ -245,7 +246,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                                     </Link>
                                 )}
                             </Box>
-                            {/* <Box {...styles.actionsItem}>
+                            <Box {...styles.actionsItem}>
                                 <Link to={STORE_LOCATOR_HREF}>
                                     <HStack>
                                         <LocationIcon {...styles.icon} />{' '}
@@ -257,7 +258,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                                         </Text>
                                     </HStack>
                                 </Link>
-                            </Box> */}
+                            </Box>
                             <Box>
                                 <LocaleSelector
                                     {...styles.localeSelector}
@@ -269,7 +270,7 @@ const DrawerMenu = ({isOpen, onClose = noop, onLogoClick = noop, root}) => {
                                         window.location = newUrl
                                     }}
                                 />
-                            </Box>
+                            </Box> */}
                         </VStack>
 
                         {/* <DrawerSeparator /> */}
