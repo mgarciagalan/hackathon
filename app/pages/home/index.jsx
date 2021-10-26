@@ -8,14 +8,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {useIntl, FormattedMessage} from 'react-intl'
-import {Box, Button, Grid, GridItem, Stack} from '@chakra-ui/react'
+import {Box, Button, Grid, GridItem, Stack, Image} from '@chakra-ui/react'
 import {getAssetUrl} from 'pwa-kit-react-sdk/ssr/universal/utils'
 import {Link} from 'react-router-dom'
-import Hero from '../../components/hero'
+import CategoriesBlock from '../../components/custom-categories-block'
+//import Hero from '../../components/hero'
 import Seo from '../../components/seo'
 import Section from '../../components/section'
 import BasicTile from '../../components/basic-tile'
-import {categoriesThreeColumns, categoriesTwoColumns} from './data'
+import {categoriesThreeColumns, categoriesTwoColumns, categoriesCustomBlock} from './data'
 import RecommendedProducts from '../../components/recommended-products'
 
 /**
@@ -30,35 +31,87 @@ const Home = () => {
     return (
         <Box data-testid="home-page" layerStyle="page">
             <Seo
-                title="Home Page"
-                description="Commerce Cloud Retail React App"
-                keywords="Commerce Cloud, Retail React App, React Storefront"
+                title="El Montao"
+                description="Tapas, etc."
+                keywords="el montao, bar, tapas, murcia, kilómetro 0"
             />
 
-            <Hero
-                title={intl.formatMessage({
-                    defaultMessage: 'Lighter layers for lighter days.'
-                })}
-                img={{
-                    src: getAssetUrl('static/img/hero.png'),
-                    alt: intl.formatMessage({
-                        defaultMessage: 'New Arrivals'
-                    })
-                }}
-                actions={
-                    <Button
-                        as={Link}
-                        to={`/${intl.locale}/category/newarrivals`}
-                        width={{base: 'full', md: 'inherit'}}
-                    >
-                        <FormattedMessage defaultMessage="Shop New Arrivals" />
-                    </Button>
-                }
-                label={intl.formatMessage({
-                    defaultMessage: 'New In'
-                })}
-                marginBottom="16"
-            />
+            <Grid templateColumns={{base: '1fr', lg: '50% 1fr'}} gap={{base: 8, xl: 16}} marginBottom="16">
+                <GridItem display="flex" alignItems="center">
+                    <CategoriesBlock
+                        spacing={4}
+                        category_1={{
+                            src_1: getAssetUrl('static/img/home/cat_1.jpg'),
+                            alt_1: intl.formatMessage({
+                                defaultMessage: 'Montaditos'
+                            })
+                        }}
+                        category_2={{
+                            src_2: getAssetUrl('static/img/home/cat_2.jpg'),
+                            alt_2: intl.formatMessage({
+                                defaultMessage: 'Tapas'
+                            })
+                        }}
+                        category_3={{
+                            src_3: getAssetUrl('static/img/home/cat_3.jpg'),
+                            alt_3: intl.formatMessage({
+                                defaultMessage: 'Raciones'
+                            })
+                        }}
+                        category_4={{
+                            src_4: getAssetUrl('static/img/home/cat_4.jpg'),
+                            alt_4: intl.formatMessage({
+                                defaultMessage: 'Bebidas'
+                            })
+                        }}
+                        cta_1={
+                            <Button
+                                as={Link}
+                                to={`/${intl.locale}/category/newarrivals`}
+                                width={{base: 'full', md: 'inherit'}}
+                            >
+                                <FormattedMessage defaultMessage="Montaditos" />
+                            </Button>
+                        }
+                        cta_2={
+                            <Button
+                                as={Link}
+                                to={`/${intl.locale}/category/newarrivals`}
+                                width={{base: 'full', md: 'inherit'}}
+                            >
+                                <FormattedMessage defaultMessage="Tapas" />
+                            </Button>
+                        }
+                        cta_3={
+                            <Button
+                                as={Link}
+                                to={`/${intl.locale}/category/newarrivals`}
+                                width={{base: 'full', md: 'inherit'}}
+                            >
+                                <FormattedMessage defaultMessage="Raciones" />
+                            </Button>
+                        }
+                        cta_4={
+                            <Button
+                                as={Link}
+                                to={`/${intl.locale}/category/newarrivals`}
+                                width={{base: 'full', md: 'inherit'}}
+                            >
+                                <FormattedMessage defaultMessage="Bebidas" />
+                            </Button>
+                        }
+                    />
+                </GridItem>
+                <GridItem display="flex" alignItems="center">
+                    <Image
+                        width="100%"
+                        maxHeight="500px"
+                        objectFit="contain"
+                        src={getAssetUrl('static/img/logo-el-montao-full.png')}
+                        alt="Logo El Montao" />
+                </GridItem>
+            </Grid>
+
             <Section
                 title={intl.formatMessage({
                     defaultMessage: 'Shop by Category'
