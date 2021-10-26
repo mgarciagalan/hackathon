@@ -87,5 +87,14 @@ export default {
             marginRight: 2
         }
     },
-    parts: ['container', 'content', 'searchContainer', 'bodyContainer', 'logo', 'logoBtn', 'icons', 'signout']
+    parts: [
+        'container',
+        'content',
+        'searchContainer',
+        'bodyContainer',
+        'logo',
+        'logoBtn',
+        'icons',
+        'signout'
+    ]
 }

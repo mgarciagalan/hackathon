@@ -48,9 +48,7 @@ import {navLinks, messages} from '../../pages/account/constant'
 import useNavigation from '../../hooks/use-navigation'
 import LoadingSpinner from '../loading-spinner'
 
-import {
-    LogoElMontaoMin
-} from '../custom-icons'
+import {LogoElMontaoMin} from '../custom-icons'
 
 import {HideOnDesktop, HideOnMobile} from '../responsive'
 

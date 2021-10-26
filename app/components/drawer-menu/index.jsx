@@ -45,9 +45,7 @@ import Link from '../../components/link'
 // Icons
 import {LocationIcon, SignoutIcon, UserIcon} from '../icons'
 
-import {
-    LogoElMontaoTexto
-} from '../custom-icons'
+import {LogoElMontaoTexto} from '../custom-icons'
 
 // Others
 import {noop} from '../../utils/utils'

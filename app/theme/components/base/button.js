@@ -18,13 +18,13 @@ export default {
                       border: '4px solid black',
                       borderRadius: '0',
                       _hover: {
-                          backgroundColor:'black',
-                          color:'white', 
-                          bg: 'black', 
+                          backgroundColor: 'black',
+                          color: 'white',
+                          bg: 'black',
                           _disabled: {
                               bg: 'black.100'
-                            }
-                        },
+                          }
+                      },
                       _active: {bg: 'yellow.800'},
                       _disabled: {bg: 'yellow.300'}
                   }
@@ -32,13 +32,13 @@ export default {
         outline: (props) =>
             props.colorScheme === 'black'
                 ? {
-                    color: 'black.900', 
-                    _hover: {bg: 'black.50'}, 
-                    textTransform: 'uppercase',
-                    border: '1px solid black',
-                    borderRadius: '0',
-                    borderColor: 'black.200'
-                }
+                      color: 'black.900',
+                      _hover: {bg: 'black.50'},
+                      textTransform: 'uppercase',
+                      border: '1px solid black',
+                      borderRadius: '0',
+                      borderColor: 'black.200'
+                  }
                 : {color: 'black.600', _hover: {bg: 'black.50'}},
         footer: {
             fontSize: 'sm',

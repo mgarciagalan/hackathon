@@ -44,5 +44,7 @@ const icon = (name, passProps) => {
 // For non-square SVGs, we can use the symbol data from the import to set the
 // proper viewBox attribute on the Icon wrapper.
 export const LogoElMontaoMin = icon('logo-el-montao-min', {viewBox: LogoMin.viewBox})
-export const LogoElMontaoHorizontal = icon('logo-el-montao-horizontal', {viewBox: LogoHorizontal.viewBox})
+export const LogoElMontaoHorizontal = icon('logo-el-montao-horizontal', {
+    viewBox: LogoHorizontal.viewBox
+})
 export const LogoElMontaoTexto = icon('logo-el-montao-texto', {viewBox: LogoTexto.viewBox})
