@@ -18,6 +18,7 @@ import Section from '../../components/section'
 import BasicTile from '../../components/basic-tile'
 import {categoriesThreeColumns, categoriesTwoColumns, categoriesCustomBlock} from './data'
 import RecommendedProducts from '../../components/recommended-products'
+import {HideOnDesktop, HideOnMobile} from '../../components/responsive'
 
 /**
  * This is the home page for Retail React App.
@@ -29,14 +30,33 @@ const Home = () => {
     const intl = useIntl()
 
     return (
-        <Box data-testid="home-page" layerStyle="page">
+        <Box data-testid="home-page" layerStyle="page" 
+        sx={{ '.button': {
+                border: 'none',
+                backgroundColor: '#07AF4F',
+                color: '#fff'},
+            '.button:hover': {
+                border: 'none',
+                backgroundColor: '#A67B5B',
+                color: '#fff'}
+        }} >
             <Seo
                 title="El Montao"
                 description="Tapas, etc."
                 keywords="el montao, bar, tapas, murcia, kilómetro 0"
             />
 
-            <Grid templateColumns={{base: '1fr', lg: '50% 1fr'}} gap={{base: 8, xl: 16}} marginBottom="16">
+            <Grid templateColumns={{base: 'repeat(1, 1fr)', lg: 'repeat(2, 1fr)'}} gap={{base: 8, xl: 16}} marginBottom="16">
+                <HideOnDesktop>
+                    <GridItem display="flex" alignItems="center" justifyContent="center">
+                        <Image
+                            width="100%"
+                            maxWidth="400px"
+                            objectFit="contain"
+                            src={getAssetUrl('static/img/logo-el-montao-horizontal.png')}
+                            alt="Logo El Montao" />
+                    </GridItem>
+                </HideOnDesktop>
                 <GridItem display="flex" alignItems="center">
                     <CategoriesBlock
                         spacing={4}
@@ -68,7 +88,10 @@ const Home = () => {
                             <Button
                                 as={Link}
                                 to={`/${intl.locale}/category/newarrivals`}
-                                width={{base: 'full', md: 'inherit'}}
+                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}}
+                                letterSpacing='2.5px'
+                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
+                                className="button"
                             >
                                 <FormattedMessage defaultMessage="Montaditos" />
                             </Button>
@@ -77,7 +100,10 @@ const Home = () => {
                             <Button
                                 as={Link}
                                 to={`/${intl.locale}/category/newarrivals`}
-                                width={{base: 'full', md: 'inherit'}}
+                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
+                                letterSpacing='2.5px'
+                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
+                                className="button"
                             >
                                 <FormattedMessage defaultMessage="Tapas" />
                             </Button>
@@ -86,7 +112,10 @@ const Home = () => {
                             <Button
                                 as={Link}
                                 to={`/${intl.locale}/category/newarrivals`}
-                                width={{base: 'full', md: 'inherit'}}
+                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
+                                letterSpacing='2.5px'
+                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
+                                className="button"
                             >
                                 <FormattedMessage defaultMessage="Raciones" />
                             </Button>
@@ -95,21 +124,26 @@ const Home = () => {
                             <Button
                                 as={Link}
                                 to={`/${intl.locale}/category/newarrivals`}
-                                width={{base: 'full', md: 'inherit'}}
+                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
+                                letterSpacing='2.5px'
+                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
+                                className="button"
                             >
                                 <FormattedMessage defaultMessage="Bebidas" />
                             </Button>
                         }
                     />
                 </GridItem>
-                <GridItem display="flex" alignItems="center">
-                    <Image
-                        width="100%"
-                        maxHeight="500px"
-                        objectFit="contain"
-                        src={getAssetUrl('static/img/logo-el-montao-full.png')}
-                        alt="Logo El Montao" />
-                </GridItem>
+                <HideOnMobile>
+                    <GridItem display="flex" alignItems="center">
+                        <Image
+                            width="100%"
+                            maxHeight="500px"
+                            objectFit="contain"
+                            src={getAssetUrl('static/img/logo-el-montao-full.png')}
+                            alt="Logo El Montao" />
+                    </GridItem>
+                </HideOnMobile>
             </Grid>
 
             <Section
