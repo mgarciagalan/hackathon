@@ -5,18 +5,20 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { capsFirst } from "../../utils";
 import {useIntl, FormattedMessage} from 'react-intl'
-import {Box, Button, Grid, GridItem, Stack, Image} from '@chakra-ui/react'
+import {Box, Button, Grid, GridItem, Stack, Image, Flex, Tag, Text, HStack, VStack, Heading} from '@chakra-ui/react'
 import {getAssetUrl} from 'pwa-kit-react-sdk/ssr/universal/utils'
 import {Link} from 'react-router-dom'
 import CategoriesBlock from '../../components/custom-categories-block'
+import Carousel from "../../components/custom-carousel";
 //import Hero from '../../components/hero'
 import Seo from '../../components/seo'
 import Section from '../../components/section'
 import BasicTile from '../../components/basic-tile'
-import {categoriesThreeColumns, categoriesTwoColumns, categoriesCustomBlock} from './data'
+import {categoriesThreeColumns, categoriesTwoColumns} from './data'
 import RecommendedProducts from '../../components/recommended-products'
 import {HideOnDesktop, HideOnMobile} from '../../components/responsive'
 
@@ -28,6 +30,14 @@ import {HideOnDesktop, HideOnMobile} from '../../components/responsive'
  */
 const Home = () => {
     const intl = useIntl()
+
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+      fetch("https://jsonplaceholder.typicode.com/posts/")
+        .then((res) => res.json())
+        .then((res) => setData(res));
+    }, []);
 
     return (
         <Box data-testid="home-page" layerStyle="page" 
@@ -145,6 +155,64 @@ const Home = () => {
                     </GridItem>
                 </HideOnMobile>
             </Grid>
+
+            <Section
+                title={intl.formatMessage({
+                    defaultMessage: 'Montaditos'
+                })}
+                subtitle={intl.formatMessage({
+                    defaultMessage: 'Top 10'
+                })}
+            >
+                <Carousel gap={32}>
+                {data.slice(5, 15).map((post, index) => (
+                    <Flex
+                    key={index}
+                    boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px"
+                    justifyContent="space-between"
+                    flexDirection="column"
+                    overflow="hidden"
+                    //color="gray.300"
+                    //bg="base.d100"
+                    rounded={5}
+                    flex={1}
+                    p={5}
+                    >
+                    <VStack mb={6}>
+                        <Heading
+                        fontSize={{ base: "xl", md: "2xl" }}
+                        textAlign="left"
+                        w="full"
+                        mb={2}
+                        >
+                        {capsFirst(post.title)}
+                        </Heading>
+                        <Text w="full">{capsFirst(post.body)}</Text>
+                    </VStack>
+
+                    <Flex justifyContent="space-between">
+                        <HStack spacing={2}>
+                        <Tag size="sm" variant="outline" colorScheme="green">
+                            User: {post.userId}
+                        </Tag>
+                        <Tag size="sm" variant="outline" colorScheme="cyan">
+                            Post: {post.id - 5}
+                        </Tag>
+                        </HStack>
+                        <Button
+                        onClick={() => alert(`Post ${post.id - 5} clicked`)}
+                        colorScheme="green"
+                        fontWeight="bold"
+                        color="gray.900"
+                        size="sm"
+                        >
+                        More
+                        </Button>
+                    </Flex>
+                    </Flex>
+                ))}
+                </Carousel>
+            </Section>
 
             <Section
                 title={intl.formatMessage({

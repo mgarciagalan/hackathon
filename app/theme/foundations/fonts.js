@@ -1,6 +1,6 @@
 const fonts = {
     heading: 'Agrandir-GrandHeavy',
-    body: 'Agrandir-Narrow'
+    body: 'Agrandir-Regular'
 }
 
 export default fonts
