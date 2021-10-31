@@ -40,10 +40,7 @@ export const rebuildPathWithParams = (url, extraParams) => {
     })
 
     // Clean up any trailing `=` for params without values.
-    const paramStr = params
-        .toString()
-        .replace(/=&/g, '&')
-        .replace(/=$/, '')
+    const paramStr = params.toString().replace(/=&/g, '&').replace(/=$/, '')
 
     // Generate the newly updated url.
     return `${pathname}?${paramStr}`
@@ -81,8 +78,14 @@ export const buildUrlSet = (url = '', key = '', values = [], extraParams = {}) =
  * @param {string} locale
  * @returns {string}
  */
-export const categoryUrlBuilder = (category, locale = DEFAULT_LOCALE) =>
-    encodeURI(`/${locale}/category/${category.id}`)
+export const categoryUrlBuilder = (category, locale = DEFAULT_LOCALE) => {
+    if (category.parentCategoryId === 'root') {
+        return encodeURI(`/${locale}/${category.id}`)
+    } else {
+        return encodeURI(`/${locale}/${category.parentCategoryId}/${category.id}`)
+    }
+}
+// encodeURI(`/${locale}/${category.parentCategoryId}/${category.id}`)
 
 /**
  * Given a product and the current locale returns an href to the product detail page.
@@ -157,10 +160,7 @@ export const removeQueryParamsFromPath = (path, keys) => {
     })
 
     // Clean up any trailing `=` for params without values.
-    const paramStr = params
-        .toString()
-        .replace(/=&/g, '&')
-        .replace(/=$/, '')
+    const paramStr = params.toString().replace(/=&/g, '&').replace(/=$/, '')
 
     return `${pathname}${paramStr && '?'}${paramStr}`
 }
