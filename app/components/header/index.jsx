@@ -151,6 +151,7 @@ const Header = ({
                             {...styles.search}
                         />
                     </Box>
+                    {/* 
                     <HideOnMobile>
                         <AccountIcon
                             {...styles.accountIcon}
@@ -252,7 +253,7 @@ const Header = ({
                             {...styles.icons}
                             onClick={onWishlistClick}
                         />
-                    </HideOnMobile>
+                    </HideOnMobile> */}
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.my_cart',
