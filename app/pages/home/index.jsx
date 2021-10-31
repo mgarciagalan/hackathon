@@ -7,20 +7,21 @@
 
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { capsFirst } from "../../utils";
 import {useIntl, FormattedMessage} from 'react-intl'
 import {Box, Button, Grid, GridItem, Stack, Image, Flex, Tag, Text, HStack, VStack, Heading} from '@chakra-ui/react'
 import {getAssetUrl} from 'pwa-kit-react-sdk/ssr/universal/utils'
 import {Link} from 'react-router-dom'
-import CategoriesBlock from '../../components/custom-categories-block'
-import Carousel from "../../components/custom-carousel";
-//import Hero from '../../components/hero'
 import Seo from '../../components/seo'
 import Section from '../../components/section'
-import BasicTile from '../../components/basic-tile'
-import {categoriesThreeColumns, categoriesTwoColumns} from './data'
-import RecommendedProducts from '../../components/recommended-products'
+import CategoriesBlock from '../../components/custom-categories-block'
+import Carousel from '../../components/custom-carousel'
+import CategoryTile from '../../components/custom-category-tile'
+//import Hero from '../../components/hero'
+//import RecommendedProducts from '../../components/recommended-products'
+import {categories} from './data'
+import {productsTop10} from './data'
 import {HideOnDesktop, HideOnMobile} from '../../components/responsive'
+import {IconoElMontao} from '../../components/custom-icons'
 
 /**
  * This is the home page for Retail React App.
@@ -31,16 +32,8 @@ import {HideOnDesktop, HideOnMobile} from '../../components/responsive'
 const Home = () => {
     const intl = useIntl()
 
-    const [data, setData] = useState([]);
-  
-    useEffect(() => {
-      fetch("https://jsonplaceholder.typicode.com/posts/")
-        .then((res) => res.json())
-        .then((res) => setData(res));
-    }, []);
-
     return (
-        <Box data-testid="home-page" layerStyle="page" 
+        <Box data-testid='home-page' layerStyle='page' 
         sx={{ '.button': {
                 border: 'none',
                 backgroundColor: '#07AF4F',
@@ -51,185 +44,192 @@ const Home = () => {
                 color: '#fff'}
         }} >
             <Seo
-                title="El Montao"
-                description="Tapas, etc."
-                keywords="el montao, bar, tapas, murcia, kilómetro 0"
+                title='El Montao'
+                description='Tapas, etc.'
+                keywords='el montao, bar, tapas, murcia, kilómetro 0'
             />
 
-            <Grid templateColumns={{base: 'repeat(1, 1fr)', lg: 'repeat(2, 1fr)'}} gap={{base: 8, xl: 16}} marginBottom="16">
+            <Grid templateColumns={{base: 'repeat(1, 1fr)', lg: 'repeat(2, 1fr)'}} gap={{base: 8, xl: 16}} marginBottom='16'>
                 <HideOnDesktop>
-                    <GridItem display="flex" alignItems="center" justifyContent="center">
+                    <GridItem display='flex' alignItems='center' justifyContent='center'>
                         <Image
-                            width="100%"
-                            maxWidth="400px"
-                            objectFit="contain"
+                            width='100%'
+                            maxWidth='400px'
+                            objectFit='contain'
                             src={getAssetUrl('static/img/logo-el-montao-horizontal.png')}
-                            alt="Logo El Montao" />
+                            alt='Logo El Montao' />
                     </GridItem>
                 </HideOnDesktop>
-                <GridItem display="flex" alignItems="center">
+                <GridItem display='flex' alignItems='center'>
                     <CategoriesBlock
                         spacing={4}
                         category_1={{
                             src_1: getAssetUrl('static/img/home/cat_1.jpg'),
                             alt_1: intl.formatMessage({
-                                defaultMessage: 'Montaditos'
+                                defaultMessage: 'Tapas'
                             })
                         }}
                         category_2={{
                             src_2: getAssetUrl('static/img/home/cat_2.jpg'),
                             alt_2: intl.formatMessage({
-                                defaultMessage: 'Tapas'
+                                defaultMessage: 'Montaos'
                             })
                         }}
                         category_3={{
                             src_3: getAssetUrl('static/img/home/cat_3.jpg'),
                             alt_3: intl.formatMessage({
-                                defaultMessage: 'Raciones'
+                                defaultMessage: 'Bebidas'
                             })
                         }}
                         category_4={{
                             src_4: getAssetUrl('static/img/home/cat_4.jpg'),
                             alt_4: intl.formatMessage({
-                                defaultMessage: 'Bebidas'
+                                defaultMessage: 'Postres'
                             })
                         }}
                         cta_1={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/newarrivals`}
+                                to={`/${intl.locale}/category/1`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}}
                                 letterSpacing='2.5px'
-                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
-                                className="button"
+                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
+                                className='button'
                             >
-                                <FormattedMessage defaultMessage="Montaditos" />
+                                <FormattedMessage defaultMessage='Tapas' />
                             </Button>
                         }
                         cta_2={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/newarrivals`}
+                                to={`/${intl.locale}/category/2`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
                                 letterSpacing='2.5px'
-                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
-                                className="button"
+                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
+                                className='button'
                             >
-                                <FormattedMessage defaultMessage="Tapas" />
+                                <FormattedMessage defaultMessage='Montaos' />
                             </Button>
                         }
                         cta_3={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/newarrivals`}
+                                to={`/${intl.locale}/category/3`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
                                 letterSpacing='2.5px'
-                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
-                                className="button"
+                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
+                                className='button'
                             >
-                                <FormattedMessage defaultMessage="Raciones" />
+                                <FormattedMessage defaultMessage='Bebidas' />
                             </Button>
                         }
                         cta_4={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/newarrivals`}
+                                to={`/${intl.locale}/category/4`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
                                 letterSpacing='2.5px'
-                                padding={{base: '0 10px', md: '10px 15px', lg: '20px 25px'}}
-                                className="button"
+                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
+                                className='button'
                             >
-                                <FormattedMessage defaultMessage="Bebidas" />
+                                <FormattedMessage defaultMessage='Postres' />
                             </Button>
                         }
                     />
                 </GridItem>
                 <HideOnMobile>
-                    <GridItem display="flex" alignItems="center">
+                    <GridItem display='flex' alignItems='center'>
                         <Image
-                            width="100%"
-                            maxHeight="500px"
-                            objectFit="contain"
+                            width='100%'
+                            maxHeight='500px'
+                            objectFit='contain'
                             src={getAssetUrl('static/img/logo-el-montao-full.png')}
-                            alt="Logo El Montao" />
+                            alt='Logo El Montao' />
                     </GridItem>
                 </HideOnMobile>
             </Grid>
 
             <Section
                 title={intl.formatMessage({
-                    defaultMessage: 'Montaditos'
+                    defaultMessage: 'Montaos'
                 })}
                 subtitle={intl.formatMessage({
                     defaultMessage: 'Top 10'
                 })}
             >
                 <Carousel gap={32}>
-                {data.slice(5, 15).map((post, index) => (
-                    <Flex
-                    key={index}
-                    boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px"
-                    justifyContent="space-between"
-                    flexDirection="column"
-                    overflow="hidden"
-                    //color="gray.300"
-                    //bg="base.d100"
-                    rounded={5}
-                    flex={1}
-                    p={5}
-                    >
-                    <VStack mb={6}>
-                        <Heading
-                        fontSize={{ base: "xl", md: "2xl" }}
-                        textAlign="left"
-                        w="full"
-                        mb={2}
-                        >
-                        {capsFirst(post.title)}
-                        </Heading>
-                        <Text w="full">{capsFirst(post.body)}</Text>
-                    </VStack>
-
-                    <Flex justifyContent="space-between">
-                        <HStack spacing={2}>
-                        <Tag size="sm" variant="outline" colorScheme="green">
-                            User: {post.userId}
-                        </Tag>
-                        <Tag size="sm" variant="outline" colorScheme="cyan">
-                            Post: {post.id - 5}
-                        </Tag>
-                        </HStack>
-                        <Button
-                        onClick={() => alert(`Post ${post.id - 5} clicked`)}
-                        colorScheme="green"
-                        fontWeight="bold"
-                        color="gray.900"
-                        size="sm"
-                        >
-                        More
-                        </Button>
-                    </Flex>
-                    </Flex>
-                ))}
+                    {productsTop10.map((product, index) => {
+                        return (
+                            <Flex
+                                key={index}
+                                justifyContent='space-between'
+                                flexDirection='column'
+                                overflow='hidden'
+                                flex={1}
+                                p={5}
+                                >
+                                <Box paddingBottom='1'>
+                                    <Link to={product.href}>
+                                        <Image
+                                            alt={product.imgAlt}
+                                            src={getAssetUrl(product.imgSrc)}
+                                        />
+                                    </Link>
+                                </Box>
+                                <Box>
+                                    <IconoElMontao
+                                        display='inline'
+                                        position='relative'
+                                        marginLeft='-25px'
+                                        marginTop='-85px'
+                                        width='auto'
+                                        height='100px'
+                                    />
+                                    <Text
+                                        letterSpacing='1px'
+                                        fontFamily='Agrandir-GrandHeavy'
+                                        fontSize='14px'
+                                        display='inline'
+                                        >
+                                        {product.productName}
+                                    </Text>
+                                </Box>
+                            </Flex>
+                        )
+                    })}
                 </Carousel>
+                <Flex>
+                    <Button
+                        as={Link}
+                        to={`/${intl.locale}/category/2`}
+                        fontSize={{base: 'sm', md: 'md', lg: 'lg'}}
+                        letterSpacing='2.5px'
+                        padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
+                        className='button button-outline'
+                    >
+                        Ver montaditos
+                    </Button>
+                </Flex>
             </Section>
 
             <Section
                 title={intl.formatMessage({
-                    defaultMessage: 'Shop by Category'
+                    defaultMessage: 'Carta'
+                })}
+                subtitle={intl.formatMessage({
+                    defaultMessage: 'Murcia Km 0'
                 })}
             >
                 <Grid
-                    templateRows={{base: 'repeat(1, 1fr)', md: 'repeat(auto, 1fr)'}}
-                    templateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(6, 1fr)'}}
+                    templateColumns={{base: 'repeat(1, 4fr)', md: 'repeat(2, 2fr)', xl: 'repeat(4, 1fr)'}}
                     columnGap={6}
                     rowGap={8}
                 >
-                    {categoriesThreeColumns.map((item, index) => {
+                    {categories.map((item, index) => {
                         const category = item.message
                         return (
-                            <GridItem key={index} rowSpan={1} colSpan={{base: 1, md: 2}}>
-                                <BasicTile
+                            <GridItem key={index}>
+                                <CategoryTile
                                     title={intl.formatMessage(category.title)}
                                     href={intl.formatMessage(category.href, {
                                         activeLocale: intl.locale
@@ -238,24 +238,7 @@ const Home = () => {
                                         src: getAssetUrl(intl.formatMessage(category.imgSrc)),
                                         alt: intl.formatMessage(category.imgAlt)
                                     }}
-                                />
-                            </GridItem>
-                        )
-                    })}
-
-                    {categoriesTwoColumns.map((item, index) => {
-                        const category = item.message
-                        return (
-                            <GridItem key={index} rowSpan={1} colSpan={{base: 1, md: 3}}>
-                                <BasicTile
-                                    title={intl.formatMessage(category.title)}
-                                    href={intl.formatMessage(category.href, {
-                                        activeLocale: intl.locale
-                                    })}
-                                    img={{
-                                        src: getAssetUrl(intl.formatMessage(category.imgSrc)),
-                                        alt: intl.formatMessage(category.imgAlt)
-                                    }}
+                                    description={intl.formatMessage(category.description)}
                                 />
                             </GridItem>
                         )
@@ -263,19 +246,19 @@ const Home = () => {
                 </Grid>
             </Section>
 
-            <Stack spacing={16}>
+            {/*<Stack spacing={16}>
                 <RecommendedProducts
-                    title={<FormattedMessage defaultMessage="Top Sellers" />}
+                    title={<FormattedMessage defaultMessage='Top Sellers' />}
                     recommender={'home-top-revenue-for-category'}
                     mx={{base: -4, md: -8, lg: 0}}
                 />
 
                 <RecommendedProducts
-                    title={<FormattedMessage defaultMessage="Most Viewed" />}
+                    title={<FormattedMessage defaultMessage='Most Viewed' />}
                     recommender={'products-in-all-categories'}
                     mx={{base: -4, md: -8, lg: 0}}
                 />
-            </Stack>
+                </Stack>*/}
         </Box>
     )
 }
