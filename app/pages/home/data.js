@@ -18,7 +18,7 @@ export const categories = [
     {
         message: defineMessages({
             title: {defaultMessage: 'Tapas'},
-            href: {defaultMessage: '/{activeLocale}/category/1'},
+            href: {defaultMessage: '/{activeLocale}/category/tapas'},
             imgSrc: {defaultMessage: 'static/img/home/cat_1.jpg'},
             imgAlt: {defaultMessage: 'Tapas'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
@@ -27,7 +27,7 @@ export const categories = [
     {
         message: defineMessages({
             title: {defaultMessage: 'Montaos'},
-            href: {defaultMessage: '/{activeLocale}/category/2'},
+            href: {defaultMessage: '/{activeLocale}/category/montaos'},
             imgSrc: {defaultMessage: 'static/img/home/cat_2.jpg'},
             imgAlt: {defaultMessage: 'Montaos'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
@@ -36,7 +36,7 @@ export const categories = [
     {
         message: defineMessages({
             title: {defaultMessage: 'Bebidas'},
-            href: {defaultMessage: '/{activeLocale}/category/3'},
+            href: {defaultMessage: '/{activeLocale}/category/bebidas'},
             imgSrc: {defaultMessage: 'static/img/home/cat_3.jpg'},
             imgAlt: {defaultMessage: 'Bebidas'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
@@ -45,7 +45,7 @@ export const categories = [
     {
         message: defineMessages({
             title: {defaultMessage: 'Postres'},
-            href: {defaultMessage: '/{activeLocale}/category/4'},
+            href: {defaultMessage: '/{activeLocale}/category/postres'},
             imgSrc: {defaultMessage: 'static/img/home/cat_4.jpg'},
             imgAlt: {defaultMessage: 'Postres'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}

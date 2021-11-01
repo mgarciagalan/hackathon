@@ -90,7 +90,7 @@ const Home = () => {
                         cta_1={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/1`}
+                                to={`/${intl.locale}/category/tapas`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}}
                                 letterSpacing='2.5px'
                                 padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
@@ -102,7 +102,7 @@ const Home = () => {
                         cta_2={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/2`}
+                                to={`/${intl.locale}/category/montaos`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
                                 letterSpacing='2.5px'
                                 padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
@@ -114,7 +114,7 @@ const Home = () => {
                         cta_3={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/3`}
+                                to={`/${intl.locale}/category/bebidas`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
                                 letterSpacing='2.5px'
                                 padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
@@ -126,7 +126,7 @@ const Home = () => {
                         cta_4={
                             <Button
                                 as={Link}
-                                to={`/${intl.locale}/category/4`}
+                                to={`/${intl.locale}/category/postres`}
                                 fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
                                 letterSpacing='2.5px'
                                 padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
