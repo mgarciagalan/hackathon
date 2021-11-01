@@ -19,7 +19,7 @@ import {
     AccordionIcon,
     Box,
     Button,
-    Stack
+    Stack,
 } from '@chakra-ui/react'
 
 // Hooks
@@ -68,7 +68,7 @@ const ProductDetail = ({category, product, isLoading}) => {
         // update the variation attributes parameter on
         // the url accordingly as the variant changes
         const updatedUrl = rebuildPathWithParams(`${location.pathname}${location.search}`, {
-            pid: variant?.productId
+            pid: variant?.productId,
         })
         history.replace(updatedUrl)
     }, [variant])
@@ -79,13 +79,13 @@ const ProductDetail = ({category, product, isLoading}) => {
         try {
             await wishlist.createListItem({
                 id: product.id,
-                quantity
+                quantity,
             })
             toast({
                 title: formatMessage(
                     {
                         defaultMessage:
-                            '{quantity} {quantity, plural, one {item} other {items}} added to wishlist'
+                            '{quantity} {quantity, plural, one {item} other {items}} added to wishlist',
                     },
                     {quantity: 1}
                 ),
@@ -94,7 +94,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                     <Button variant="link" onClick={() => navigate('/account/wishlist')}>
                         View
                     </Button>
-                )
+                ),
             })
         } catch {
             toast({
@@ -102,7 +102,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                     {defaultMessage: '{errorMessage}'},
                     {errorMessage: API_ERROR_MESSAGE}
                 ),
-                status: 'error'
+                status: 'error',
             })
         }
     }
@@ -115,7 +115,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                 {defaultMessage: '{errorMessage}'},
                 {errorMessage: API_ERROR_MESSAGE}
             ),
-            status: 'error'
+            status: 'error',
         })
     }
     const handleAddToCart = async (variant, quantity) => {
@@ -127,8 +127,8 @@ const ProductDetail = ({category, product, isLoading}) => {
                 {
                     productId: variant.productId,
                     quantity,
-                    price: variant.price
-                }
+                    price: variant.price,
+                },
             ]
 
             await basket.addItemToBasket(productItems)
@@ -164,15 +164,11 @@ const ProductDetail = ({category, product, isLoading}) => {
                     isProductLoading={isLoading}
                     isCustomerProductListLoading={!wishlist.isInitialized}
                 />
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: product?.longDescription
-                    }}
-                />
+
                 {/* Information Accordion */}
                 <Stack direction="row" spacing={[0, 0, 0, 16]}>
                     <Accordion allowMultiple allowToggle maxWidth={'896px'} flex={[1, 1, 1, 5]}>
-                        {/* Details 
+                        {/* Details
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -194,7 +190,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                         </AccordionItem>
                         */}
 
-                        {/* Size & Fit 
+                        {/* Size & Fit
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -211,7 +207,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                             </AccordionPanel>
                         </AccordionItem>*/}
 
-                        {/* Reviews 
+                        {/* Reviews
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -228,7 +224,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                             </AccordionPanel>
                         </AccordionItem>*/}
 
-                        {/* Questions 
+                        {/* Questions
                         <AccordionItem>
                             <h2>
                                 <AccordionButton height="64px">
@@ -299,13 +295,13 @@ ProductDetail.getProps = async ({params, location, api}) => {
     product = await api.shopperProducts.getProduct({
         parameters: {
             id: urlParams.get('pid') || productId,
-            allImages: true
-        }
+            allImages: true,
+        },
     })
 
     if (product?.primaryCategoryId) {
         category = await api.shopperProducts.getCategory({
-            parameters: {id: product?.primaryCategoryId, levels: 1}
+            parameters: {id: product?.primaryCategoryId, levels: 1},
         })
     }
 
@@ -338,7 +334,7 @@ ProductDetail.propTypes = {
     /**
      * The current react router match object. (Provided internally)
      */
-    match: PropTypes.object
+    match: PropTypes.object,
 }
 
 export default ProductDetail
