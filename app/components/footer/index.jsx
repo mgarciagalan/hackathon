@@ -36,7 +36,7 @@ const Footer = ({...otherProps}) => {
     const intl = useIntl()
 
     return (
-        <Box as="footer" {...styles.container} {...otherProps}>
+        <Box as="footer" {...styles.container} {...otherProps} backgroundColor='#A67B5B'>
             <Box {...styles.content}>
                 <StylesProvider value={styles}>
                     <HideOnMobile>
