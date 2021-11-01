@@ -39,72 +39,76 @@ const routes = [
     {
         path: '/',
         component: Home,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale',
         component: Home,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale/login',
         component: Login,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale/registration',
         component: Registration,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale/reset-password',
         component: ResetPassword,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale/account',
-        component: Account
+        component: Account,
     },
     {
         path: '/:locale/checkout',
         component: Checkout,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale/checkout/confirmation',
         component: CheckoutConfirmation,
-        exact: true
+        exact: true,
     },
     {
         path: '/callback',
         component: LoginRedirect,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale/cart',
         component: Cart,
-        exact: true
+        exact: true,
     },
     {
         path: '/:locale/product/:productId',
-        component: ProductDetail
+        component: ProductDetail,
     },
     {
         path: '/:locale/search',
-        component: ProductList
+        component: ProductList,
     },
     {
-        path: '/:locale/category/:categoryId',
-        component: ProductList
+        path: '/:locale/:category/:categoryId',
+        component: ProductList,
+    },
+    {
+        path: '/:locale/:categoryId',
+        component: ProductList,
     },
     {
         path: '/:locale/account/wishlist',
-        component: Wishlist
+        component: Wishlist,
     },
     {
         path: '*',
-        component: PageNotFound
-    }
+        component: PageNotFound,
+    },
 ]
 
 export default routes
