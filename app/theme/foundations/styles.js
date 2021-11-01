@@ -18,8 +18,16 @@ export default {
             display: 'flex',
             minHeight: '100vh',
         },
+        '.mvc-shipping-address':{
+            '> div[role=group]':{
+                'display': 'none'
+            }
+        },
+        '.billing-payment-checkout, .mvc-stack-address': {
+            display: 'none !important'
+        },
         '*': {
             fontFamily: 'Agrandir-Regular',
-        },
-    },
+        }
+    }
 }
