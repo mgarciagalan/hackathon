@@ -38,8 +38,9 @@ export default {
         logoBtn: {
             width: [10, 10, 12, 20],
             height: [10, 10, 12, 20],
-            flex: '1',
-            alignSelf: ['self-start', 'self-start', 'self-start', 'self-start']
+            flex: [1, 1, 1, 0],
+            alignSelf: ['self-start', 'self-start', 'self-start', 'self-start'],
+            marginRight: [0, 0, '40px']
         },
         icons: {
             marginBottom: [1, 1, 2, 0]
