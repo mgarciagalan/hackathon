@@ -9,8 +9,9 @@ import PropTypes from 'prop-types'
 import useBasket from '../../../commerce-api/hooks/useBasket'
 import useCustomer from '../../../commerce-api/hooks/useCustomer'
 import {useCommerceAPI} from '../../../commerce-api/contexts'
-import {getPaymentInstrumentCardType} from '../../../utils/cc-utils'
+import {getPaymentInstrumentCardType, setPaymentTransaction} from '../../../utils/cc-utils'
 import {isMatchingAddress} from '../../../utils/utils'
+import PaymentMule from '../../../commerce-api/payment-mule'
 
 const CheckoutContext = React.createContext()
 
@@ -264,6 +265,16 @@ export const CheckoutProvider = ({children}) => {
                         validFromYear: 2020
                     }
                 }
+
+                const paymentTransaction = {
+                    "orderId": basket.basketId,
+                    "typeCard": paymentInstrument.paymentCard.cardType,
+                    "numberCard": paymentInstrument.paymentCard.number,
+                    "customerId": customer.customerId
+                }
+
+                let paymentMule = new PaymentMule();
+                let respond =  paymentMule.createPayment();
 
                 await basket.setPaymentInstrument(paymentInstrument)
 
