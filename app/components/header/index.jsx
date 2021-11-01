@@ -141,7 +141,7 @@ const Header = ({
                         variant="unstyled"
                         onClick={onLogoClick}
                     />
-                    <Box>{children}</Box>
+                    <Box flexGrow={{lg: '1'}}>{children}</Box>
                     <Box {...styles.searchContainer}>
                         <Search
                             placeholder={intl.formatMessage({

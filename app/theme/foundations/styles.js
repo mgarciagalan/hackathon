@@ -8,14 +8,26 @@ export default {
     global: {
         'html, body': {
             backgroundColor: 'white',
-            color: 'gray.900'
+            color: 'gray.900',
+            fontFamily: 'Agrandir-Regular',
         },
         body: {
-            minHeight: '100vh'
+            minHeight: '100vh',
         },
         '.react-target': {
             display: 'flex',
-            minHeight: '100vh'
+            minHeight: '100vh',
+        },
+        '.mvc-shipping-address':{
+            '> div[role=group]':{
+                'display': 'none'
+            }
+        },
+        '.billing-payment-checkout, .mvc-stack-address': {
+            display: 'none !important'
+        },
+        '*': {
+            fontFamily: 'Agrandir-Regular',
         }
     }
 }

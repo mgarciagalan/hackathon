@@ -33,7 +33,7 @@ export default function ShippingAddress() {
     return (
         <ToggleCard
             id="step-1"
-            title={formatMessage({defaultMessage: 'Shipping Address'})}
+            title={formatMessage({defaultMessage: 'Contact Info'})}
             editing={step === 1}
             isLoading={isLoading}
             disabled={selectedShippingAddress == null}

@@ -21,19 +21,21 @@ const AddressFields = ({form, prefix = ''}) => {
                 <Field {...fields.firstName} />
                 <Field {...fields.lastName} />
             </SimpleGrid>
-            <Field {...fields.phone} />
-            <Field {...fields.countryCode} />
-            <Field {...fields.address1} />
-            <Field {...fields.city} />
-            <Grid templateColumns="repeat(8, 1fr)" gap={5}>
-                <GridItem colSpan={[4, 4, 4]}>
-                    <Field {...fields.stateCode} />
-                </GridItem>
-                <GridItem colSpan={[4, 4, 4]}>
-                    <Field {...fields.postalCode} />
-                </GridItem>
-            </Grid>
-            {customer.isRegistered && <Field {...fields.preferred} />}
+            <Stack className="mvc-stack-address">
+                <Field {...fields.phone} />
+                <Field {...fields.countryCode} />
+                <Field {...fields.address1} />
+                <Field {...fields.city} />
+                <Grid templateColumns="repeat(8, 1fr)" gap={5}>
+                    <GridItem colSpan={[4, 4, 4]}>
+                        <Field {...fields.stateCode} />
+                    </GridItem>
+                    <GridItem colSpan={[4, 4, 4]}>
+                        <Field {...fields.postalCode} />
+                    </GridItem>
+                </Grid>
+                {customer.isRegistered && <Field {...fields.preferred} />}
+            </Stack>
         </Stack>
     )
 }
