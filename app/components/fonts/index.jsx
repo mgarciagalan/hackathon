@@ -29,7 +29,8 @@ const Fonts = () => (
         font-family: 'Agrandir-Regular';
         font-style: normal;
         font-weight: 400;
-        font-displ/mobify/bundle/development/static/fonts/Agrandir-Regular.woff') format('woff');
+        font-display: swap;
+        src: url('/mobify/bundle/development/static/fonts/Agrandir-Regular.woff') format('woff');
       }
       @font-face {
         font-family: 'Agrandir-WideLight';
