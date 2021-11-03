@@ -25,7 +25,7 @@ import {
     Text,
     Divider,
     useDisclosure,
-    useMediaQuery
+    useMediaQuery,
 } from '@chakra-ui/react'
 
 import useBasket from '../../commerce-api/hooks/useBasket'
@@ -40,7 +40,7 @@ import {
     HamburgerIcon,
     ChevronDownIcon,
     WishlistIcon,
-    SignoutIcon
+    SignoutIcon,
 } from '../icons'
 
 import {noop} from '../../utils/utils'
@@ -105,7 +105,7 @@ const Header = ({
 
     const keyMap = {
         Escape: () => onClose(),
-        Enter: () => onOpen()
+        Enter: () => onOpen(),
     }
 
     const handleIconsMouseLeave = () => {
@@ -123,7 +123,7 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.menu',
-                            defaultMessage: 'Menu'
+                            defaultMessage: 'Menu',
                         })}
                         icon={<HamburgerIcon />}
                         variant="unstyled"
@@ -134,7 +134,7 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.logo',
-                            defaultMessage: 'Logo'
+                            defaultMessage: 'Logo',
                         })}
                         icon={<LogoElMontaoMin {...styles.logo} />}
                         {...styles.logoBtn}
@@ -146,12 +146,12 @@ const Header = ({
                         <Search
                             placeholder={intl.formatMessage({
                                 id: 'header.search.field.value.placeholder',
-                                defaultMessage: 'Search for products...'
+                                defaultMessage: 'Search for products...',
                             })}
                             {...styles.search}
                         />
                     </Box>
-                    {/* 
+                    {/*
                     <HideOnMobile>
                         <AccountIcon
                             {...styles.accountIcon}
@@ -257,13 +257,13 @@ const Header = ({
                     <IconButton
                         aria-label={intl.formatMessage({
                             id: 'header.button.assistive_msg.my_cart',
-                            defaultMessage: 'My cart'
+                            defaultMessage: 'My cart',
                         })}
                         icon={
                             <>
                                 <BasketIcon />
                                 {basket?.loaded && (
-                                    <Badge variant="notification">
+                                    <Badge backgroundColor={'#07AF4F'} variant="notification">
                                         {basket.itemAccumulatedCount}
                                     </Badge>
                                 )}
@@ -288,8 +288,8 @@ Header.propTypes = {
     onMyCartClick: PropTypes.func,
     searchInputRef: PropTypes.oneOfType([
         PropTypes.func,
-        PropTypes.shape({current: PropTypes.elementType})
-    ])
+        PropTypes.shape({current: PropTypes.elementType}),
+    ]),
 }
 
 export default Header
