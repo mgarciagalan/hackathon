@@ -28,6 +28,9 @@ export default {
         },
         '*': {
             fontFamily: 'Agrandir-Regular',
+        },
+        '.chakra-heading p, .chakra-heading span': {
+            fontFamily: 'Agrandir-GrandHeavy'
         }
     }
 }

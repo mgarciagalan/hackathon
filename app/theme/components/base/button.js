@@ -6,43 +6,46 @@
  */
 export default {
     baseStyle: {
-        borderRadius: 'base'
+        borderRadius: '0'
     },
     variants: {
+        // El Montao solid green (default)
         solid: (props) =>
-            props.colorScheme === 'black'
+            props.colorScheme === 'elMontaoGreen'
                 ? {
-                      backgroundColor: 'white',
-                      color: 'black',
-                      textTransform: 'uppercase',
-                      border: '4px solid black',
-                      borderRadius: '0',
-                      _hover: {
-                          backgroundColor: 'black',
-                          color: 'white',
-                          bg: 'black',
-                          _disabled: {
-                              bg: 'black.100'
-                          }
-                      },
-                      _active: {bg: 'yellow.800'},
-                      _disabled: {bg: 'yellow.300'}
-                  }
+                    border: 'none',
+                    textTransform: 'uppercase',
+                    letterSpacing: '2.5px',
+                    background: '#07AF4F',
+                    color: '#fff',
+                    fontSize: { base: 'sm', md: 'md' },
+                    padding: { base: '10px 15px 7px', lg: '10px 25px 7px' },
+                    _hover: {
+                        border: 'none',
+                        background: '#A67B5B',
+                        color: '#fff'
+                    },
+                    _active: {bg: 'gray.800'},
+                    _disabled: {bg: 'gray.300'}
+                }
                 : {},
-        outline: (props) =>
-            props.colorScheme === 'black'
-                ? {
-                      color: 'black.900',
-                      _hover: {bg: 'black.50'},
-                      textTransform: 'uppercase',
-                      border: '1px solid black',
-                      borderRadius: '0',
-                      borderColor: 'black.200'
-                  }
-                : {color: 'black.600', _hover: {bg: 'black.50'}},
+        // El Montao outline black & white
+        outline: {
+            textTransform: 'uppercase',
+            letterSpacing: '2.5px',
+            border: 'solid 2px #000000',
+            background: '#fffff',
+            color: '#000000',
+            _hover: {
+                border: 'solid 2px #000000',
+                background: '#000000',
+                color: '#ffffff'
+            }
+        },
         footer: {
+            borderRadius: '0',
             fontSize: 'sm',
-            backgroundColor: 'gray.100',
+            background: 'gray.100',
             color: 'black',
             _hover: {bg: 'gray.200'},
             _active: {bg: 'gray.300'},
@@ -89,6 +92,6 @@ export default {
         }
     },
     defaultProps: {
-        colorScheme: 'black'
+        colorScheme: 'elMontaoGreen'
     }
 }
