@@ -17,7 +17,7 @@ import {Box, Heading, Text} from '@chakra-ui/react'
 const Section = ({title, subtitle, children, ...props}) => {
     return (
         <Box paddingBottom="16" paddingTop="16" {...props}>
-            <Heading as="h2" fontSize={{base: 'lg', md: 'xl'}} textAlign={{base: 'center', lg: 'left'}} marginBottom="8" textTransform='uppercase' fontWeight='400' letterSpacing='1.2px'>
+            <Heading as="h2" fontSize={{base: 'md', md: 'lg', xl: 'xl'}} textAlign={{base: 'center', lg: 'left'}} marginBottom="8" textTransform='uppercase' fontWeight='400' letterSpacing='1.2px'>
                 <Text as="span" backgroundColor='#07AF4F' padding='10px 10px 7px'>{title}</Text>
                 <Text as="span" padding='10px 10px 7px'>{subtitle}</Text>
             </Heading>

@@ -180,7 +180,7 @@ const Slider = ({
         {children}
       </Box>
 
-      <Flex w={`${itemWidth}px`} mt={`${gap / 2}px`} mx="auto">
+      <Flex w='100%' mt={`${gap / 2}px`} mx="auto" position='absolute' top={{base: '220px', md: '250px'}}>
         <Button
           onClick={handleDecrementClick}
           onFocus={handleFocus}
@@ -188,11 +188,13 @@ const Slider = ({
           color="gray.200"
           variant="link"
           minW={0}
+          position='absolute'
+          left={{base: '0', md: '-20px'}}
         >
           <ChevronLeftIcon boxSize={9} />
         </Button>
 
-        <Progress
+        {/*  <Progress
           value={percentage(activeItem, positions.length - constraint)}
           alignSelf="center"
           borderRadius="2px"
@@ -204,7 +206,7 @@ const Slider = ({
               backgroundColor: "gray.400"
             }
           }}
-        />
+        />*/}
 
         <Button
           onClick={handleIncrementClick}
@@ -214,6 +216,8 @@ const Slider = ({
           variant="link"
           zIndex={2}
           minW={0}
+          position='absolute'
+          right={{base: '0', md: '-20px'}}
         >
           <ChevronRightIcon boxSize={9} />
         </Button>

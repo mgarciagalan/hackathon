@@ -5,10 +5,10 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {useIntl, FormattedMessage} from 'react-intl'
-import {Box, Button, Grid, GridItem, Stack, Image, Flex, Tag, Text, HStack, VStack, Heading} from '@chakra-ui/react'
+import {Box, Button, Grid, GridItem, Image, Flex, Text} from '@chakra-ui/react'
 import {getAssetUrl} from 'pwa-kit-react-sdk/ssr/universal/utils'
 import {Link} from 'react-router-dom'
 import Seo from '../../components/seo'
@@ -18,8 +18,7 @@ import Carousel from '../../components/custom-carousel'
 import CategoryTile from '../../components/custom-category-tile'
 //import Hero from '../../components/hero'
 //import RecommendedProducts from '../../components/recommended-products'
-import {categories} from './data'
-import {productsTop10} from './data'
+import {categoriesBlock, categories, productsTop10} from './data'
 import {HideOnDesktop, HideOnMobile} from '../../components/responsive'
 import {IconoElMontao} from '../../components/custom-icons'
 
@@ -33,16 +32,7 @@ const Home = () => {
     const intl = useIntl()
 
     return (
-        <Box data-testid='home-page' layerStyle='page' 
-        sx={{ '.button': {
-                border: 'none',
-                backgroundColor: '#07AF4F',
-                color: '#fff'},
-            '.button:hover': {
-                border: 'none',
-                backgroundColor: '#A67B5B',
-                color: '#fff'}
-        }} >
+        <Box data-testid='home-page' layerStyle='page'>
             <Seo
                 title='El Montao'
                 description='Tapas, etc.'
@@ -63,78 +53,30 @@ const Home = () => {
                 <GridItem display='flex' alignItems='center'>
                     <CategoriesBlock
                         spacing={4}
-                        category_1={{
-                            src_1: getAssetUrl('static/img/home/cat_1.jpg'),
-                            alt_1: intl.formatMessage({
-                                defaultMessage: 'Tapas'
-                            })
+                        cat1={{
+                            title: categoriesBlock[0].title,
+                            href: categoriesBlock[0].href,
+                            src: getAssetUrl(categoriesBlock[0].imgSrc),
+                            alt: categoriesBlock[0].imgAlt
                         }}
-                        category_2={{
-                            src_2: getAssetUrl('static/img/home/cat_2.jpg'),
-                            alt_2: intl.formatMessage({
-                                defaultMessage: 'Montaos'
-                            })
+                        cat2={{
+                            title: categoriesBlock[1].title,
+                            href: categoriesBlock[1].href,
+                            src: getAssetUrl(categoriesBlock[1].imgSrc),
+                            alt: categoriesBlock[1].imgAlt
                         }}
-                        category_3={{
-                            src_3: getAssetUrl('static/img/home/cat_3.jpg'),
-                            alt_3: intl.formatMessage({
-                                defaultMessage: 'Bebidas'
-                            })
+                        cat3={{
+                            title: categoriesBlock[2].title,
+                            href: categoriesBlock[2].href,
+                            src: getAssetUrl(categoriesBlock[2].imgSrc),
+                            alt: categoriesBlock[2].imgAlt
                         }}
-                        category_4={{
-                            src_4: getAssetUrl('static/img/home/cat_4.jpg'),
-                            alt_4: intl.formatMessage({
-                                defaultMessage: 'Postres'
-                            })
+                        cat4={{
+                            title: categoriesBlock[3].title,
+                            href: categoriesBlock[3].href,
+                            src: getAssetUrl(categoriesBlock[3].imgSrc),
+                            alt: categoriesBlock[3].imgAlt
                         }}
-                        cta_1={
-                            <Button
-                                as={Link}
-                                to={`/${intl.locale}/category/tapas`}
-                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}}
-                                letterSpacing='2.5px'
-                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
-                                className='button'
-                            >
-                                <FormattedMessage defaultMessage='Tapas' />
-                            </Button>
-                        }
-                        cta_2={
-                            <Button
-                                as={Link}
-                                to={`/${intl.locale}/category/montaos`}
-                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
-                                letterSpacing='2.5px'
-                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
-                                className='button'
-                            >
-                                <FormattedMessage defaultMessage='Montaos' />
-                            </Button>
-                        }
-                        cta_3={
-                            <Button
-                                as={Link}
-                                to={`/${intl.locale}/category/bebidas`}
-                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
-                                letterSpacing='2.5px'
-                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
-                                className='button'
-                            >
-                                <FormattedMessage defaultMessage='Bebidas' />
-                            </Button>
-                        }
-                        cta_4={
-                            <Button
-                                as={Link}
-                                to={`/${intl.locale}/category/postres`}
-                                fontSize={{base: 'sm', md: 'md', lg: 'lg'}} 
-                                letterSpacing='2.5px'
-                                padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
-                                className='button'
-                            >
-                                <FormattedMessage defaultMessage='Postres' />
-                            </Button>
-                        }
                     />
                 </GridItem>
                 <HideOnMobile>
@@ -150,6 +92,7 @@ const Home = () => {
             </Grid>
 
             <Section
+                position='relative'
                 title={intl.formatMessage({
                     defaultMessage: 'Montaos'
                 })}
@@ -192,22 +135,29 @@ const Home = () => {
                                         display='inline'
                                         >
                                         {product.productName}
+                                        
+                                        <Text
+                                            as="span"
+                                            letterSpacing='1px'
+                                            fontSize='13px'
+                                            display='block'
+                                            marginLeft='75px'
+                                            >
+                                            {product.description}
+                                        </Text>
                                     </Text>
                                 </Box>
                             </Flex>
                         )
                     })}
                 </Carousel>
-                <Flex>
+                <Flex justifyContent='center'>
                     <Button
                         as={Link}
-                        to={`/${intl.locale}/category/2`}
-                        fontSize={{base: 'sm', md: 'md', lg: 'lg'}}
-                        letterSpacing='2.5px'
-                        padding={{base: '10px 15px 7px', lg: '10px 25px 7px'}}
-                        className='button button-outline'
+                        to={`/${intl.locale}/category/montaos`}
+                        variant='outline'
                     >
-                        Ver montaditos
+                        Todos los montaos
                     </Button>
                 </Flex>
             </Section>
