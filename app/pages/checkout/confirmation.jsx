@@ -141,7 +141,7 @@ const CheckoutConfirmation = () => {
                             </Box>
                         </Stack>
                     </Box>
-
+                    {/*
                     {customer.isGuest && (
                         <Box
                             layerStyle="card"
@@ -178,6 +178,7 @@ const CheckoutConfirmation = () => {
                             </Container>
                         </Box>
                     )}
+                                        
 
                     <Box layerStyle="card" rounded={[0, 0, 'base']} px={[4, 4, 6]} py={[6, 6, 8]}>
                         <Container variant="form">
@@ -211,7 +212,7 @@ const CheckoutConfirmation = () => {
                             </Stack>
                         </Container>
                     </Box>
-
+                    */}
                     <Box layerStyle="card" rounded={[0, 0, 'base']} px={[4, 4, 6]} py={[6, 6, 8]}>
                         <Container variant="form">
                             <Stack spacing={6}>

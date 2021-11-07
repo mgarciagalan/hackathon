@@ -14,41 +14,20 @@ class PaymentMule {
     constructor() {
     }
 
-    async createPayment() {
-
-        const url = 'https://randomuser.me/api/?results=10';
-
-        var test1 = await fetch(url)
-        .then((resp) => resp.json())
-        .catch(function(error) {
-            console.log(error);
-        });
- 
-        const host = 'http://anypoint.mulesoft.com/mocking/api/v1/links/a0946d8c-6004-477b-88f1-05f86cc7db33/add-payment'
+    async createPayment(paymentTransaction) {
+        const host = 'http://mvc.us-e2.cloudhub.io/api/add-payment'
         const resource = '/add-payment'
         const method = 'POST'
         const  headers = {
             'Content-Type': 'application/json'
         }
-
-        const paymentTransaction = {
-            "orderId": "000001",
-            "typeCard": "VISA",
-            "numberCard": "41111111111111111",
-            "customerId": "00001"
-        }
-
+        const body = paymentTransaction;
         const response = await fetch( host, {
             method: 'POST',
-            credentials: 'include',
             headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-                'Access-Control-Allow-Headers': 'X-PINGOTHER',
-                'Access-Control-Max-Age': '1728000',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(paymentTransaction) // body data type must match "Content-Type" header
+            body: JSON.stringify(body) // body data type must match "Content-Type" header
         })
         .then((resp) => {
             return resp
