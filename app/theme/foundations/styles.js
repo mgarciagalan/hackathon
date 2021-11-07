@@ -18,16 +18,25 @@ export default {
             display: 'flex',
             minHeight: '100vh',
         },
-        '.mvc-shipping-address':{
-            '> div[role=group]':{
-                'display': 'none'
-            }
+        '.mvc-shipping-address': {
+            '> div[role=group]': {
+                display: 'none',
+            },
         },
         '.billing-payment-checkout, .mvc-stack-address': {
-            display: 'none !important'
+            display: 'none !important',
         },
         '*': {
             fontFamily: 'Agrandir-Regular',
+        },
+        '.chakra-heading p, .chakra-heading span': {
+            fontFamily: 'Agrandir-GrandHeavy'
+        },
+        'button.plp__add-cart-btn:disabled': {
+            backgroundColor: '#A67B5B',
+        },
+        'button.plp__add-cart-btn:not(:disabled):hover': {
+            backgroundColor: 'green',
         }
     }
 }

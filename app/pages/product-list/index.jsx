@@ -38,7 +38,7 @@ import {
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton
+    DrawerCloseButton,
 } from '@chakra-ui/react'
 
 // Project Components
@@ -125,13 +125,13 @@ const ProductList = (props) => {
             setWishlistLoading([...wishlistLoading, product.productId])
             await wishlist.createListItem({
                 id: product.productId,
-                quantity: 1
+                quantity: 1,
             })
             toast({
                 title: formatMessage(
                     {
                         defaultMessage:
-                            '{quantity} {quantity, plural, one {item} other {items}} added to wishlist'
+                            '{quantity} {quantity, plural, one {item} other {items}} added to wishlist',
                     },
                     {quantity: 1}
                 ),
@@ -145,7 +145,7 @@ const ProductList = (props) => {
                     <Button variant="link" onClick={() => navigate('/account/wishlist')}>
                         View
                     </Button>
-                )
+                ),
             })
         } catch {
             toast({
@@ -153,7 +153,7 @@ const ProductList = (props) => {
                     {defaultMessage: '{errorMessage}'},
                     {errorMessage: API_ERROR_MESSAGE}
                 ),
-                status: 'error'
+                status: 'error',
             })
         } finally {
             setWishlistLoading(wishlistLoading.filter((id) => id !== product.productId))
@@ -165,7 +165,7 @@ const ProductList = (props) => {
             await wishlist.removeListItemByProductId(product.productId)
             toast({
                 title: formatMessage({defaultMessage: 'Item removed from wishlist'}),
-                status: 'success'
+                status: 'success',
             })
         } catch {
             toast({
@@ -173,7 +173,7 @@ const ProductList = (props) => {
                     {defaultMessage: '{errorMessage}'},
                     {errorMessage: API_ERROR_MESSAGE}
                 ),
-                status: 'error'
+                status: 'error',
             })
         } finally {
             setWishlistLoading(wishlistLoading.filter((id) => id !== product.productId))
@@ -338,25 +338,10 @@ const ProductList = (props) => {
                                     justifyContent={['center', 'center', 'flex-start']}
                                     paddingTop={8}
                                 >
-                                    <Pagination currentURL={basePath} urls={pageUrls} />
-
                                     {/*
                             Our design doesn't call for a page size select. Show this element if you want
                             to add one to your design.
                         */}
-                                    <Select
-                                        display="none"
-                                        value={basePath}
-                                        onChange={({target}) => {
-                                            history.push(target.value)
-                                        }}
-                                    >
-                                        {limitUrls.map((href, index) => (
-                                            <option key={href} value={href}>
-                                                {DEFAULT_LIMIT_VALUES[index]}
-                                            </option>
-                                        ))}
-                                    </Select>
                                 </Flex>
                             </Box>
                         </Grid>
@@ -398,10 +383,10 @@ const ProductList = (props) => {
                                 <Button width="full" onClick={onClose}>
                                     {formatMessage(
                                         {
-                                            defaultMessage: 'View {prroductCount} items'
+                                            defaultMessage: 'View {prroductCount} items',
                                         },
                                         {
-                                            prroductCount: productSearchResult?.total
+                                            prroductCount: productSearchResult?.total,
                                         }
                                     )}
                                 </Button>
@@ -506,11 +491,11 @@ ProductList.getProps = async ({res, params, location, api}) => {
         isSearch
             ? Promise.resolve()
             : api.shopperProducts.getCategory({
-                  parameters: {id: categoryId, levels: 0}
+                  parameters: {id: categoryId, levels: 0},
               }),
         api.shopperSearch.productSearch({
-            parameters: searchParams
-        })
+            parameters: searchParams,
+        }),
     ])
 
     // Apply disallow list to refinements.
@@ -549,7 +534,7 @@ ProductList.propTypes = {
     searchQuery: PropTypes.string,
     onAddToWishlistClick: PropTypes.func,
     onRemoveWishlistClick: PropTypes.func,
-    showHeart: PropTypes.bool
+    showHeart: PropTypes.bool,
 }
 
 export default ProductList
@@ -572,10 +557,10 @@ const Sort = ({sortUrls, productSearchResult, basePath, ...otherProps}) => {
                     <option key={href} value={href}>
                         {intl.formatMessage(
                             {
-                                defaultMessage: 'Sort By: {sortOption}'
+                                defaultMessage: 'Sort By: {sortOption}',
                             },
                             {
-                                sortOption: productSearchResult?.sortingOptions[index]?.label
+                                sortOption: productSearchResult?.sortingOptions[index]?.label,
                             }
                         )}
                     </option>
@@ -587,5 +572,5 @@ const Sort = ({sortUrls, productSearchResult, basePath, ...otherProps}) => {
 Sort.propTypes = {
     sortUrls: PropTypes.array,
     productSearchResult: PropTypes.object,
-    basePath: PropTypes.string
+    basePath: PropTypes.string,
 }

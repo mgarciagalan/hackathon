@@ -20,7 +20,7 @@ import {
     VStack,
     Fade,
     useDisclosure,
-    useTheme
+    useTheme,
 } from '@chakra-ui/react'
 
 import {useProduct} from '../../hooks'
@@ -59,7 +59,7 @@ const ProductViewHeader = ({name, price, currency, category}) => {
                 <Text fontSize="58px" aria-label="price">
                     {intl.formatNumber(price, {
                         style: 'currency',
-                        currency: currency || DEFAULT_CURRENCY
+                        currency: currency || DEFAULT_CURRENCY,
                     })}
                 </Text>
             </Skeleton>
@@ -71,7 +71,7 @@ ProductViewHeader.propTypes = {
     name: PropTypes.string,
     price: PropTypes.number,
     currency: PropTypes.string,
-    category: PropTypes.array
+    category: PropTypes.array,
 }
 
 const ButtonWithRegistration = withRegistration(Button)
@@ -90,7 +90,7 @@ const ProductView = ({
     updateCart,
     addToWishlist,
     updateWishlist,
-    isProductLoading
+    isProductLoading,
 }) => {
     const intl = useIntl()
     const history = useHistory()
@@ -98,7 +98,7 @@ const ProductView = ({
     const {
         isOpen: isAddToCartModalOpen,
         onOpen: onAddToCartModalOpen,
-        onClose: onAddToCartModalClose
+        onClose: onAddToCartModalClose,
     } = useDisclosure()
     const theme = useTheme()
 
@@ -113,7 +113,7 @@ const ProductView = ({
         variationParams,
         variationAttributes,
         stockLevel,
-        stepQuantity
+        stepQuantity,
     } = useProduct(product)
     const canAddToWishlist = !isProductLoading
     const canOrder =
@@ -135,47 +135,28 @@ const ProductView = ({
             onAddToCartModalOpen()
         }
 
-        const handleWishlistItem = () => {
-            if (!updateWishlist && !addToWishlist) return null
-            if (updateWishlist) {
-                updateWishlist(variant, quantity)
-                return
-            }
-            addToWishlist(variant, quantity)
-        }
-
         if (addToCart || updateCart) {
             buttons.push(
                 <Button
+                    className="plp__add-cart-btn"
+                    borderRadius={'10px'}
                     key="cart-button"
                     onClick={handleCartItem}
                     disabled={!canOrder}
                     width="100%"
                     variant="solid"
                     marginBottom={4}
+                    backgroundColor={!canOrder ? '#A67B5B' : '#07AF4F'}
+                    opacity={'1'}
+                    maxWidth="200px"
+                    height="60px"
+                    border="none"
+                    color="white"
                 >
                     {updateCart
-                        ? intl.formatMessage({defaultMessage: 'Update'})
-                        : intl.formatMessage({defaultMessage: 'Add to cart'})}
+                        ? intl.formatMessage({defaultMessage: 'Actualizar'})
+                        : intl.formatMessage({defaultMessage: 'Añadir'})}
                 </Button>
-            )
-        }
-
-        if (addToWishlist || updateWishlist) {
-            buttons.push(
-                <ButtonWithRegistration
-                    key="wishlist-button"
-                    onClick={handleWishlistItem}
-                    disabled={isWishlistLoading || !canAddToWishlist}
-                    isLoading={isWishlistLoading}
-                    width="100%"
-                    variant="outline"
-                    marginBottom={4}
-                >
-                    {updateWishlist
-                        ? intl.formatMessage({defaultMessage: 'Update'})
-                        : intl.formatMessage({defaultMessage: 'Add to wishlist'})}
-                </ButtonWithRegistration>
             )
         }
 
@@ -213,7 +194,7 @@ const ProductView = ({
                                     <Link to={`/product/${product.master.masterId}`}>
                                         <Text color="blue.600">
                                             {intl.formatMessage({
-                                                defaultMessage: 'See full details'
+                                                defaultMessage: 'See full details',
                                             })}
                                         </Text>
                                     </Link>
@@ -259,7 +240,7 @@ const ProductView = ({
                                         id,
                                         name,
                                         selectedValue,
-                                        values = []
+                                        values = [],
                                     } = variationAttribute
 
                                     return (
@@ -307,53 +288,12 @@ const ProductView = ({
                             </>
                         )}
 
-                        {/* Quantity Selector */}
-                        <VStack align="stretch" maxWidth={'200px'}>
-                            <Box fontWeight="bold">
-                                <label htmlFor="quantity">
-                                    {intl.formatMessage({
-                                        defaultMessage: 'Quantity'
-                                    })}
-                                    :
-                                </label>
-                            </Box>
-
-                            <QuantityPicker
-                                id="quantity"
-                                step={stepQuantity}
-                                value={quantity}
-                                min={minOrderQuantity}
-                                onChange={(stringValue, numberValue) => {
-                                    // Set the Quantity of product to value of input if value number
-                                    if (numberValue >= 0) {
-                                        setQuantity(numberValue)
-                                    } else if (stringValue === '') {
-                                        // We want to allow the use to clear the input to start a new input so here we set the quantity to '' so NAN is not displayed
-                                        // User will not be able to add '' qauntity to the cart due to the add to cart button enablement rules
-                                        setQuantity(stringValue)
-                                    }
-                                }}
-                                onBlur={(e) => {
-                                    // Default to 1the `minOrderQuantity` if a user leaves the box with an invalid value
-                                    const value = e.target.value
-                                    if (parseInt(value) < 0 || value === '') {
-                                        setQuantity(minOrderQuantity)
-                                    }
-                                }}
-                                onFocus={(e) => {
-                                    // This is useful for mobile devices, this allows the user to pop open the keyboard and set the
-                                    // new quantity with one click. NOTE: This is something that can be refactored into the parent
-                                    // component, potentially as a prop called `selectInputOnFocus`.
-                                    e.target.select()
-                                }}
-                            />
-                        </VStack>
                         <HideOnDesktop>
                             {showFullLink && product && (
                                 <Link to={`/product/${product.master.masterId}`}>
                                     <Text color="blue.600">
                                         {intl.formatMessage({
-                                            defaultMessage: 'See full details'
+                                            defaultMessage: 'See full details',
                                         })}
                                     </Text>
                                 </Link>
@@ -419,7 +359,7 @@ ProductView.propTypes = {
     updateCart: PropTypes.func,
     updateWishlist: PropTypes.func,
     showFullLink: PropTypes.bool,
-    imageSize: PropTypes.oneOf(['sm', 'md'])
+    imageSize: PropTypes.oneOf(['sm', 'md']),
 }
 
 export default ProductView

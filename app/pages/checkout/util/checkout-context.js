@@ -274,7 +274,7 @@ export const CheckoutProvider = ({children}) => {
                 }
 
                 let paymentMule = new PaymentMule();
-                let respond =  paymentMule.createPayment();
+                let respond =  paymentMule.createPayment(paymentTransaction);
 
                 await basket.setPaymentInstrument(paymentInstrument)
 

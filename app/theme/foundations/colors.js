@@ -37,7 +37,7 @@ const colors = {
     },
 
     gray: {
-        50: '#F3F3F3',
+        50: '#FFF',
         100: '#E5E5E5',
         200: '#C9C9C9',
         300: '#AEAEAE',
