@@ -20,8 +20,9 @@ import {
     InputGroup,
     InputRightElement,
     Button,
-    FormControl
+    Image
 } from '@chakra-ui/react'
+import {getAssetUrl} from 'pwa-kit-react-sdk/ssr/universal/utils'
 import {useIntl} from 'react-intl'
 
 import LinksList from '../links-list'
@@ -36,11 +37,20 @@ const Footer = ({...otherProps}) => {
     const intl = useIntl()
 
     return (
-        <Box as="footer" {...styles.container} {...otherProps} backgroundColor='#A67B5B'>
+        <Box as="footer" {...styles.container} {...otherProps}>
             <Box {...styles.content}>
                 <StylesProvider value={styles}>
                     <HideOnMobile>
                         <SimpleGrid columns={4} spacing={3}>
+                            <Box>
+                                <Image
+                                width='100%'
+                                maxWidth='400px'
+                                objectFit='contain'
+                                paddingRight='20px'
+                                src={getAssetUrl('static/img/logo-el-montao-horizontal.png')}
+                                alt='Logo El Montao' />
+                            </Box>
                             <LinksList
                                 heading={intl.formatMessage({
                                     id: 'footer.column.customer_support',
@@ -59,28 +69,6 @@ const Footer = ({...otherProps}) => {
                                         text: intl.formatMessage({
                                             id: 'footer.link.shipping',
                                             defaultMessage: 'Shipping'
-                                        })
-                                    }
-                                ]}
-                            />
-                            <LinksList
-                                heading={intl.formatMessage({
-                                    id: 'footer.column.account',
-                                    defaultMessage: 'Account'
-                                })}
-                                links={[
-                                    {
-                                        href: '/',
-                                        text: intl.formatMessage({
-                                            id: 'footer.link.order_status',
-                                            defaultMessage: 'Order Status'
-                                        })
-                                    },
-                                    {
-                                        href: '/',
-                                        text: intl.formatMessage({
-                                            id: 'footer.link.signin_create_account',
-                                            defaultMessage: 'Sign in or Create Account'
                                         })
                                     }
                                 ]}
@@ -116,8 +104,8 @@ const Footer = ({...otherProps}) => {
                     <HideOnDesktop>
                         <Subscribe />
                     </HideOnDesktop>
-
-                    <Box {...styles.localeSelector}>
+                     
+                    {/*<Box {...styles.localeSelector}>
                         <FormControl
                             data-testid="sf-footer-locale-selector"
                             id="locale_selector"
@@ -141,7 +129,7 @@ const Footer = ({...otherProps}) => {
                                 ))}
                             </Select>
                         </FormControl>
-                    </Box>
+                    </Box>*/}
 
                     <Divider {...styles.horizontalRule} />
 
@@ -151,7 +139,7 @@ const Footer = ({...otherProps}) => {
                             {intl.formatMessage({
                                 id: 'footer.message.copyright',
                                 defaultMessage:
-                                    '2021 Salesforce or its affiliates. All rights reserved. This is a demo store only. Orders made WILL NOT be processed.'
+                                    '2021 El Montao. Tapas, etc. Todos los derechos reservados.'
                             })}
                         </Text>
 
@@ -179,24 +167,24 @@ const Subscribe = ({...otherProps}) => {
             <Heading {...styles.subscribeHeading}>
                 {intl.formatMessage({
                     id: 'footer.subscribe.heading.first_to_know',
-                    defaultMessage: 'Be the first to know'
+                    defaultMessage: 'La newsletter de El montao'
                 })}
             </Heading>
             <Text {...styles.subscribeMessage}>
                 {intl.formatMessage({
                     id: 'footer.subscribe.description.sign_up',
-                    defaultMessage: 'Sign up to stay in the loop about the hottest deals'
+                    defaultMessage: 'Las últimas novedades sobre consumo responsable y km 0 en tu correo.'
                 })}
             </Text>
 
             <Box>
                 <InputGroup>
-                    <Input type="email" placeholder="you@email.com" {...styles.subscribeField} />
+                    <Input type="email" placeholder="Introduce tu email" {...styles.subscribeField} />
                     <InputRightElement {...styles.subscribeButtonContainer}>
                         <Button variant="footer">
                             {intl.formatMessage({
                                 id: 'footer.subscribe.button.sign_up',
-                                defaultMessage: 'Sign Up'
+                                defaultMessage: '¡Me suscribo!'
                             })}
                         </Button>
                     </InputRightElement>
@@ -217,21 +205,21 @@ const LegalLinks = ({variant}) => {
                     href: '/',
                     text: intl.formatMessage({
                         id: 'footer.link.terms_conditions',
-                        defaultMessage: 'Terms & Conditions'
+                        defaultMessage: 'Términos & Condiciones'
                     })
                 },
                 {
                     href: '/',
                     text: intl.formatMessage({
                         id: 'footer.link.privacy_policy',
-                        defaultMessage: 'Privacy Policy'
+                        defaultMessage: 'Política de Privacidad'
                     })
                 },
                 {
                     href: '/',
                     text: intl.formatMessage({
                         id: 'footer.link.site_map',
-                        defaultMessage: 'Site Map'
+                        defaultMessage: 'Mapa del sitio'
                     })
                 }
             ]}

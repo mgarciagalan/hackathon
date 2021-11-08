@@ -42,32 +42,26 @@ const SocialIcons = ({variant, pinterestInnerColor = 'white', ...otherProps}) =>
             {/* Social Links */}
             {[
                 {
-                    href: 'https://www.youtube.com/channel/UCSTGHqzR1Q9yAVbiS3dAFHg',
-                    icon: SocialYoutubeIcon,
-                    ariaLabel: 'YouTube'
-                },
-                {
-                    href: 'https://www.instagram.com/commercecloud/?hl=en',
+                    href: 'https://www.instagram.com/ElMontaoTapas',
                     icon: SocialInstagramIcon,
                     ariaLabel: 'Instagram'
                 },
                 {
-                    href: '/',
-                    icon: SocialPinterestIcon,
-                    ariaLabel: 'Pinterest'
-                },
-                {
-                    href: 'https://twitter.com/CommerceCloud',
+                    href: 'https://twitter.com/ElMontaoTapas',
                     icon: SocialTwitterIcon,
                     ariaLabel: 'Twitter'
                 },
                 {
-                    href: 'https://www.facebook.com/CommerceCloud/',
+                    href: 'https://www.facebook.com/ElMontaoTapas/',
                     icon: SocialFacebookIcon,
                     ariaLabel: 'Facebook'
                 }
             ].map(({href, icon, ariaLabel}) => (
                 <IconButton
+                    color="#07AF4F"
+                    _hover= {{
+                        color:"#A67B5B"
+                    }}
                     {...styles.item}
                     key={href}
                     icon={React.createElement(icon, styles.icon)}
