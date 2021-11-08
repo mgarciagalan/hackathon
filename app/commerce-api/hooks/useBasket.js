@@ -8,6 +8,9 @@ import {useContext, useMemo} from 'react'
 import useEinstein from './useEinstein'
 import {useCommerceAPI, BasketContext} from '../contexts'
 import useCustomer from './useCustomer'
+import MarketingMule from '../marketing-mule'
+import HerokuMule from '../heroku-mule'
+
 
 export default function useBasket() {
     const api = useCommerceAPI()
@@ -339,6 +342,24 @@ export default function useBasket() {
                     throw new Error(response.title)
                 }
 
+                let marketingData = {
+                    "orderId": response.orderNo,
+                    "email": response.customerInfo.email
+                }
+                let marketingMule = new MarketingMule()
+                marketingMule.sendOrderConfirmation(marketingData)
+                
+                let herokuData = {
+                    "orderId": response.orderNo,
+                    "product": "Name Product",
+                    "email": response.customerInfo.email,
+                    "customerId": response.customerInfo.customerId
+                }
+
+                let herokuMule = new HerokuMule()
+                herokuMule.sendOrder(herokuData)
+
+                let a = ""
                 // We replace the basket with the order result data so we can display
                 // it on the confirmation page. The basket is automatically deleted
                 // in SF so we need to make sure a new one is created when leaving the confirmation.
