@@ -35,7 +35,7 @@ const Home = () => {
         <Box data-testid='home-page' layerStyle='page'>
             <Seo
                 title='El Montao'
-                description='Tapas, etc.'
+                description='Tapas Km 0'
                 keywords='el montao, bar, tapas, murcia, kilómetro 0'
             />
 

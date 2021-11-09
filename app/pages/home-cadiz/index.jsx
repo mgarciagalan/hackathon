@@ -35,7 +35,7 @@ const HomeCadiz = () => {
         <Box data-testid='cadiz-page' layerStyle='page'>
             <Seo
                 title='El Montao'
-                description='Tapas, etc.'
+                description='Tapas Km 0'
                 keywords='el montao, bar, tapas, cádiz, kilómetro 0'
             />
 
