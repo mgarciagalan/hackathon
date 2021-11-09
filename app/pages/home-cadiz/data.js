@@ -18,25 +18,25 @@ export const categoriesBlock = [
     {
         title: 'Tapas',
         href: '/{activeLocale}/category/tapas',
-        imgSrc: 'static/img/home/tapa_pisto.jpg',
+        imgSrc: 'static/img/home-cadiz/tortilla_camarones.jpg',
         imgAlt: 'Tapas'
     },
     {
         title: 'Montaos',
         href: '/{activeLocale}/category/montaos',
-        imgSrc: 'static/img/home/montao_salmon.jpg',
+        imgSrc: 'static/img/home-cadiz/pollo.jpg',
         imgAlt: 'Montaos'
     },
     {
         title: 'Bebidas',
         href: '/{activeLocale}/category/bebidas',
-        imgSrc: 'static/img/home/bebida_cerveza.jpg',
+        imgSrc: 'static/img/home-cadiz/vino.jpg',
         imgAlt: 'Bebidas' 
     },
     {
         title: 'Postres',
         href: '/{activeLocale}/category/postres',
-        imgSrc: 'static/img/home/postre_cafe.jpg',
+        imgSrc: 'static/img/home-cadiz/pestinos.jpg',
         imgAlt: 'Postres'
     }
 ]
@@ -46,7 +46,7 @@ export const categories = [
         message: defineMessages({
             title: {defaultMessage: 'Tapas'},
             href: {defaultMessage: '/{activeLocale}/category/tapas'},
-            imgSrc: {defaultMessage: 'static/img/home/tapa_pisto.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home-cadiz/cazon.jpg'},
             imgAlt: {defaultMessage: 'Tapas'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
         })
@@ -55,7 +55,7 @@ export const categories = [
         message: defineMessages({
             title: {defaultMessage: 'Montaos'},
             href: {defaultMessage: '/{activeLocale}/category/montaos'},
-            imgSrc: {defaultMessage: 'static/img/home/montao_salmon.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home-cadiz/chicharrones.jpg'},
             imgAlt: {defaultMessage: 'Montaos'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
         })
@@ -64,7 +64,7 @@ export const categories = [
         message: defineMessages({
             title: {defaultMessage: 'Bebidas'},
             href: {defaultMessage: '/{activeLocale}/category/bebidas'},
-            imgSrc: {defaultMessage: 'static/img/home/bebida_cerveza.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home-cadiz/cerveza.jpg'},
             imgAlt: {defaultMessage: 'Bebidas'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
         })
@@ -73,7 +73,7 @@ export const categories = [
         message: defineMessages({
             title: {defaultMessage: 'Postres'},
             href: {defaultMessage: '/{activeLocale}/category/postres'},
-            imgSrc: {defaultMessage: 'static/img/home/postre_cafe.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home-cadiz/pan_cadiz.jpg'},
             imgAlt: {defaultMessage: 'Postres'},
             description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
         })
@@ -83,30 +83,30 @@ export const categories = [
 export const productsTop10 = [
     {
         productName: 'Mojama',
-        href: '/{activeLocale}/product/20',
-        imgSrc: 'static/img/home/montao_marinera.jpg',
+        href: '/{activeLocale}/product/43',
+        imgSrc: 'static/img/home-cadiz/mojama.jpg',
         imgAlt: 'Mojama',
-        description: 'El montao que no debes dejar escapar.'
+        description: '¡Querrás repetir!'
     },
     {
         productName: 'Atún en tomate',
-        href: '/{activeLocale}/product/162',
-        imgSrc: 'static/img/home/montao_magra.jpg',
+        href: '/{activeLocale}/product/44',
+        imgSrc: 'static/img/home-cadiz/atun_tomate.jpg',
         imgAlt: 'Atún en tomate',
-        description: 'La mejor magra con tomate se hace en Murcia.'
+        description: 'Atún pescado en las costas de Cádiz. Con todos los protocolos de calidad y bienestar animal.'
     },
     {
         productName: 'Pollo a la canilla',
-        href: '/{activeLocale}/product/182',
-        imgSrc: 'static/img/home/montao_salmon.jpg',
+        href: '/{activeLocale}/product/45',
+        imgSrc: 'static/img/home-cadiz/pollo.jpg',
         imgAlt: 'Pollo a la canilla',
-        description: 'El clásico entre los clásicos.'
+        description: 'Auténtica tradición gaditana de kilómetro 0.'
     },
     {
         productName: 'Chicharrones de Cádiz',
-        href: '/{activeLocale}/product/5',
-        imgSrc: 'static/img/home/tapa_pisto.jpg',
+        href: '/{activeLocale}/product/46',
+        imgSrc: 'static/img/home-cadiz/chicharrones.jpg',
         imgAlt: 'Chicharrones de Cádiz',
-        description: 'Un pisto muy murciano.'
+        description: '¡Un capricho de cuando en cuando no hace daño!'
     }
 ]

@@ -90,28 +90,28 @@ export const productsTop10 = [
     },
     {
         productName: 'Sobrasada con queso brie',
-        href: '/{activeLocale}/product/162',
+        href: '/{activeLocale}/product/172',
         imgSrc: 'static/img/home/montao_sobrasada.jpg',
         imgAlt: 'Sobrasada con queso brie',
         description: 'Con riquísima sobrasada local.'
     },
     {
         productName: 'Salmón ahumado',
-        href: '/{activeLocale}/product/182',
+        href: '/{activeLocale}/product/181',
         imgSrc: 'static/img/home/salmon_brie.jpg',
         imgAlt: 'Salmón ahumado',
         description: 'El clásico entre los clásicos.'
     },
     {
         productName: 'Anchoa con tomate',
-        href: '/{activeLocale}/product/5',
+        href: '/{activeLocale}/product/19',
         imgSrc: 'static/img/home/anchoa_tomate.jpg',
         imgAlt: 'Anchoa con tomate',
         description: 'Tomaticos de la huerta y ese gran toque salado de anchoa.'
     },
     {
         productName: 'Queso fresco con tomate',
-        href: '/{activeLocale}/product/5',
+        href: '/{activeLocale}/product/22',
         imgSrc: 'static/img/home/montao_queso.jpg',
         imgAlt: 'Queso fresco con tomate',
         description: 'Una combinación suave y ligera.'
