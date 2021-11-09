@@ -80,7 +80,7 @@ const CartSecondaryButtonGroup = ({
                         <FormattedMessage defaultMessage="Edit" />
                     </Button>
                 </ButtonGroup>
-                <Flex alignItems="center">
+                {/*<Flex alignItems="center">
                     <Checkbox spacing={2} isReadOnly={true}>
                         <FormattedMessage defaultMessage="This is a gift." />
                     </Checkbox>
@@ -89,7 +89,7 @@ const CartSecondaryButtonGroup = ({
                             <FormattedMessage defaultMessage="Learn more" />
                         </Button>
                     </Box>
-                </Flex>
+                </Flex>*/}
             </Stack>
             <ConfirmationModal
                 {...REMOVE_CART_ITEM_CONFIRMATION_DIALOG_CONFIG}

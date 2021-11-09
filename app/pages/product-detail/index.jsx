@@ -149,6 +149,7 @@ const ProductDetail = ({category, product, isLoading}) => {
             className="sf-product-detail-page"
             layerStyle="page"
             data-testid="product-details-page"
+            paddingBottom={{base: '0px', md: '50px'}}
         >
             <Helmet>
                 <title>{product?.pageTitle}</title>
@@ -166,8 +167,8 @@ const ProductDetail = ({category, product, isLoading}) => {
                 />
 
                 {/* Information Accordion */}
-                <Stack direction="row" spacing={[0, 0, 0, 16]}>
-                    <Accordion allowMultiple allowToggle maxWidth={'896px'} flex={[1, 1, 1, 5]}>
+                {/*<Stack direction="row" spacing={[0, 0, 0, 16]}>
+                    <Accordion allowMultiple allowToggle maxWidth={'896px'} flex={[1, 1, 1, 5]}>*/}
                         {/* Details
                         <AccordionItem>
                             <h2>
@@ -240,11 +241,11 @@ const ProductDetail = ({category, product, isLoading}) => {
                                 Coming Soon
                             </AccordionPanel>
                         </AccordionItem>*/}
-                    </Accordion>
+                    {/*</Accordion>
                     <Box display={['none', 'none', 'none', 'block']} flex={4}></Box>
-                </Stack>
+                </Stack>*/}
 
-                {/* Product Recommendations */}
+                {/* Product Recommendations 
                 <Stack spacing={16}>
                     <RecommendedProducts
                         title={<FormattedMessage defaultMessage="Complete The Set" />}
@@ -267,7 +268,7 @@ const ProductDetail = ({category, product, isLoading}) => {
                         recommender={'viewed-recently-einstein'}
                         mx={{base: -4, md: -8, lg: 0}}
                     />
-                </Stack>
+                </Stack>*/}
             </Stack>
         </Box>
     )
