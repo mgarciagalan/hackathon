@@ -34,9 +34,6 @@ export default {
         },
         'button.plp__add-cart-btn:disabled': {
             backgroundColor: '#A67B5B',
-        },
-        'button.plp__add-cart-btn:not(:disabled):hover': {
-            backgroundColor: 'green',
         }
     }
 }

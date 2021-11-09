@@ -99,7 +99,7 @@ const ImageGallery = ({imageGroups = [], selectedVariationAttributes = {}, size}
     return (
         <Flex direction="column">
             {heroImage && (
-                <Box {...styles.heroImageGroup}>
+                <Box {...styles.heroImageGroup} maxWidth="500px">
                     <AspectRatio {...styles.heroImage} ratio={1}>
                         <Img alt={heroImage.alt} src={heroImage.disBaseLink} />
                     </AspectRatio>

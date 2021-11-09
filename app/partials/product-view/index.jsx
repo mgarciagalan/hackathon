@@ -21,6 +21,7 @@ import {
     Fade,
     useDisclosure,
     useTheme,
+    Tabs, TabList, TabPanels, Tab, TabPanel
 } from '@chakra-ui/react'
 
 import {useProduct} from '../../hooks'
@@ -39,7 +40,8 @@ import RecommendedProducts from '../../components/recommended-products'
 import {HideOnDesktop, HideOnMobile} from '../../components/responsive'
 import QuantityPicker from '../../components/quantity-picker'
 
-const ProductViewHeader = ({name, price, currency, category}) => {
+{/* PDP heading info */}
+const ProductViewHeader = ({name, price, currency, category, shortDescription}) => {
     const intl = useIntl()
     return (
         <VStack mr={4} spacing={2} align="flex-start" marginBottom={[4, 4, 4, 0, 0]}>
@@ -51,7 +53,14 @@ const ProductViewHeader = ({name, price, currency, category}) => {
 
             {/* Title */}
             <Skeleton isLoaded={name}>
-                <Heading fontSize="36px" fontWeight="normal" color="#47525E">{`${name}`}</Heading>
+                <Heading fontSize={{base: '26px', md: '36px'}} fontWeight="normal" color="#47525E">{`${name}`}</Heading>
+            </Skeleton>
+
+            {/* Description */}
+            <Skeleton isLoaded={shortDescription} width="100%">
+                <Text fontSize={{base: '16px', md: '20px'}} padding={{base: '15px 0', md: '25px 0'}} aria-label="description">
+                    {shortDescription}
+                </Text>
             </Skeleton>
 
             {/* Price */}
@@ -72,6 +81,55 @@ ProductViewHeader.propTypes = {
     price: PropTypes.number,
     currency: PropTypes.string,
     category: PropTypes.array,
+    shortDescription: PropTypes.string,
+}
+
+{/* PDP tabs custom info */}
+const ProductTabs = ({longDescription, mon_ingredientes, mon_alergenos}) => {
+    if (longDescription || mon_ingredientes || mon_alergenos) {
+        return (
+            <VStack mr={4} spacing={2} align="flex-start" marginBottom={[4, 4, 4, 0, 0]}>
+                <Tabs isFitted width='100%'>
+                <TabList mb="1em">
+                    {mon_ingredientes ? (
+                        <Tab _selected={{ color: "#07AF4F", borderColor: "#07AF4F" }}>Ingredientes</Tab>
+                    ) : (
+                        <Tab isDisabled>Ingredientes</Tab>
+                    )}
+                    {longDescription ? (
+                        <Tab _selected={{ color: "#07AF4F", borderColor: "#07AF4F" }}>Información nutricional</Tab>
+                    ) : (
+                        <Tab isDisabled>Información nutricional</Tab>
+                    )}
+                    {mon_alergenos ? (
+                        <Tab _selected={{ color: "#07AF4F", borderColor: "#07AF4F" }}>Alérgenos</Tab>
+                    ) : (
+                        <Tab isDisabled>Alérgenos</Tab>
+                    )}
+                </TabList>
+                <TabPanels>
+                    <TabPanel>
+                    <p>{mon_ingredientes}</p>
+                    </TabPanel>
+                    <TabPanel>
+                    <p>{longDescription}</p>
+                    </TabPanel>
+                    <TabPanel>
+                    <p>{mon_alergenos}</p>
+                    </TabPanel>
+                </TabPanels>
+                </Tabs>
+            </VStack>
+        )
+    } else {
+        return ( null )
+    }
+}
+
+ProductTabs.propTypes = {
+    longDescription: PropTypes.string,
+    mon_ingredientes: PropTypes.string,
+    mon_alergenos: PropTypes.array
 }
 
 const ButtonWithRegistration = withRegistration(Button)
@@ -139,7 +197,6 @@ const ProductView = ({
             buttons.push(
                 <Button
                     className="plp__add-cart-btn"
-                    borderRadius={'10px'}
                     key="cart-button"
                     onClick={handleCartItem}
                     disabled={!canOrder}
@@ -178,6 +235,7 @@ const ProductView = ({
                     price={product?.price}
                     currency={product?.currency}
                     category={category}
+                    shortDescription={product?.shortDescription}
                 />
             </Box>
             <Flex direction={['column', 'column', 'column', 'row']}>
@@ -214,6 +272,7 @@ const ProductView = ({
                             price={product?.price}
                             currency={product?.currency}
                             category={category}
+                            shortDescription={product?.shortDescription}
                         />
                     </Box>
                     <VStack align="stretch" spacing={4}>
@@ -310,6 +369,14 @@ const ProductView = ({
                             </Fade>
                         )}
                         {renderActionButtons()}
+                    </Box>
+                    {/* Custom info tabs */}
+                    <Box>
+                        <ProductTabs
+                            longDescription={product?.longDescription}
+                            mon_ingredientes={product?.c_mon_ingredientes}
+                            mon_alergenos={product?.c_mon_alergenos}
+                        />
                     </Box>
                 </VStack>
             </Flex>
