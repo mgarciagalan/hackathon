@@ -28,15 +28,15 @@ import {IconoElMontao} from '../../components/custom-icons'
  * The page renders SEO metadata and a few promotion
  * categories and products, data is from local file.
  */
-const Home = () => {
+const HomeCadiz = () => {
     const intl = useIntl()
 
     return (
-        <Box data-testid='home-page' layerStyle='page'>
+        <Box data-testid='cadiz-page' layerStyle='page'>
             <Seo
                 title='El Montao'
                 description='Tapas Km 0'
-                keywords='el montao, bar, tapas, murcia, kilómetro 0'
+                keywords='el montao, bar, tapas, cádiz, kilómetro 0'
             />
 
             <Grid templateColumns={{base: 'repeat(1, 1fr)', lg: 'repeat(2, 1fr)'}} gap={{base: 8, xl: 16}} marginBottom='16'>
@@ -167,7 +167,7 @@ const Home = () => {
                     defaultMessage: 'Carta'
                 })}
                 subtitle={intl.formatMessage({
-                    defaultMessage: 'Murcia Km 0'
+                    defaultMessage: 'Cádiz Km 0'
                 })}
             >
                 <Grid
@@ -213,13 +213,13 @@ const Home = () => {
     )
 }
 
-Home.getTemplateName = () => 'home'
-Home.propTypes = {
+HomeCadiz.getTemplateName = () => 'home-cadiz'
+HomeCadiz.propTypes = {
     recommendations: PropTypes.array,
     isLoading: PropTypes.bool
 }
 
-Home.getProps = async ({res}) => {
+HomeCadiz.getProps = async ({res}) => {
     // Since the home page is static, it is safe to set max age to a high value
     // we set it to a year here, but you can set the value that is suitable for your project
     if (res) {
@@ -227,4 +227,4 @@ Home.getProps = async ({res}) => {
     }
 }
 
-export default Home
+export default HomeCadiz

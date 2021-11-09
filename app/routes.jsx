@@ -22,6 +22,7 @@ const fallback = <Skeleton height="75vh" width="100%" />
 
 // Pages
 const Home = loadable(() => import('./pages/home'), {fallback})
+const HomeCadiz = loadable(() => import('./pages/home-cadiz'), {fallback})
 const Login = loadable(() => import('./pages/login'), {fallback})
 const Registration = loadable(() => import('./pages/registration'), {fallback})
 const ResetPassword = loadable(() => import('./pages/reset-password'), {fallback})
@@ -44,6 +45,16 @@ const routes = [
     {
         path: '/:locale',
         component: Home,
+        exact: true,
+    },
+    {
+        path: '/cadiz',
+        component: HomeCadiz,
+        exact: true,
+    },
+    {
+        path: '/:locale/cadiz',
+        component: HomeCadiz,
         exact: true,
     },
     {

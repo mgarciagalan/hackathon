@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 const Seo = ({title, description, noIndex, children, ...props}) => {
-    const siteName = 'Retail React App'
+    const siteName = 'El Montao'
     const fullTitle = title ? `${title} | ${siteName}` : siteName
 
     return (

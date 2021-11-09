@@ -18,25 +18,25 @@ export const categoriesBlock = [
     {
         title: 'Tapas',
         href: '/{activeLocale}/category/tapas',
-        imgSrc: 'static/img/home/cat_1.jpg',
+        imgSrc: 'static/img/home/tapa_pulpo.jpg',
         imgAlt: 'Tapas'
     },
     {
         title: 'Montaos',
         href: '/{activeLocale}/category/montaos',
-        imgSrc: 'static/img/home/cat_2.jpg',
+        imgSrc: 'static/img/home/montao_marinera.jpg',
         imgAlt: 'Montaos'
     },
     {
         title: 'Bebidas',
         href: '/{activeLocale}/category/bebidas',
-        imgSrc: 'static/img/home/cat_3.jpg',
+        imgSrc: 'static/img/home/bebida_cerveza.jpg',
         imgAlt: 'Bebidas' 
     },
     {
         title: 'Postres',
         href: '/{activeLocale}/category/postres',
-        imgSrc: 'static/img/home/cat_4.jpg',
+        imgSrc: 'static/img/home/postre_pan.jpg',
         imgAlt: 'Postres'
     }
 ]
@@ -46,36 +46,36 @@ export const categories = [
         message: defineMessages({
             title: {defaultMessage: 'Tapas'},
             href: {defaultMessage: '/{activeLocale}/category/tapas'},
-            imgSrc: {defaultMessage: 'static/img/home/cat_1.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home/tapa_pastel.jpg'},
             imgAlt: {defaultMessage: 'Tapas'},
-            description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+            description: {defaultMessage: 'La mejor selección de tapas de la región: pulpo al horno de mazarrón, pastelico de carne, morcilla y muchos más.'}
         })
     },
     {
         message: defineMessages({
             title: {defaultMessage: 'Montaos'},
             href: {defaultMessage: '/{activeLocale}/category/montaos'},
-            imgSrc: {defaultMessage: 'static/img/home/cat_2.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home/montao_queso.jpg'},
             imgAlt: {defaultMessage: 'Montaos'},
-            description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+            description: {defaultMessage: 'Grandísimos platos que pueden ir sobre una tosta o pan de pueblo: la clásica marinera en rosquilla, magra con tomate en pan de pueblo, salmón en tosta, etc.'}
         })
     },
     {
         message: defineMessages({
             title: {defaultMessage: 'Bebidas'},
             href: {defaultMessage: '/{activeLocale}/category/bebidas'},
-            imgSrc: {defaultMessage: 'static/img/home/cat_3.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home/bebida_cerveza2.jpg'},
             imgAlt: {defaultMessage: 'Bebidas'},
-            description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+            description: {defaultMessage: 'Queremos impulsar lo local, por lo que solo servimos como cerveza Estrella Levante con un alto porcentaje de productos producidos en la región.'}
         })
     },
     {
         message: defineMessages({
             title: {defaultMessage: 'Postres'},
             href: {defaultMessage: '/{activeLocale}/category/postres'},
-            imgSrc: {defaultMessage: 'static/img/home/cat_4.jpg'},
+            imgSrc: {defaultMessage: 'static/img/home/postre_cafe.jpg'},
             imgAlt: {defaultMessage: 'Postres'},
-            description: {defaultMessage: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+            description: {defaultMessage: 'Clásicos murcianos de siempre: paparajotes y pan de calatrava, acompañados de café local.'}
         })
     }
 ]
@@ -84,36 +84,36 @@ export const productsTop10 = [
     {
         productName: 'Marinera',
         href: '/{activeLocale}/product/20',
-        imgSrc: 'static/img/home/cat_4.jpg',
+        imgSrc: 'static/img/home/montao_marinera.jpg',
         imgAlt: 'Marinera',
-        description: 'El montao que no debes dejar escapar.'
+        description: 'La mejor ensaladilla murciana.'
     },
     {
-        productName: 'Magra con tomate',
-        href: '/{activeLocale}/product/162',
-        imgSrc: 'static/img/home/cat_4.jpg',
-        imgAlt: 'Magra con tomate',
-        description: 'La mejor magra con tomate se hace en Murcia.'
+        productName: 'Sobrasada con queso brie',
+        href: '/{activeLocale}/product/172',
+        imgSrc: 'static/img/home/montao_sobrasada.jpg',
+        imgAlt: 'Sobrasada con queso brie',
+        description: 'Con riquísima sobrasada local.'
     },
     {
-        productName: 'Montadito de salmón',
-        href: '/{activeLocale}/product/182',
-        imgSrc: 'static/img/home/cat_4.jpg',
-        imgAlt: 'Montadito de salmón',
+        productName: 'Salmón ahumado',
+        href: '/{activeLocale}/product/181',
+        imgSrc: 'static/img/home/salmon_brie.jpg',
+        imgAlt: 'Salmón ahumado',
         description: 'El clásico entre los clásicos.'
     },
     {
-        productName: 'Pisto murciano',
-        href: '/{activeLocale}/product/5',
-        imgSrc: 'static/img/home/cat_4.jpg',
-        imgAlt: 'Pisto murciano',
-        description: 'Un pisto muy murciano.'
+        productName: 'Anchoa con tomate',
+        href: '/{activeLocale}/product/19',
+        imgSrc: 'static/img/home/anchoa_tomate.jpg',
+        imgAlt: 'Anchoa con tomate',
+        description: 'Tomaticos de la huerta y ese gran toque salado de anchoa.'
     },
     {
-        productName: 'Pulpo al horno',
-        href: '/{activeLocale}/product/12',
-        imgSrc: 'static/img/home/cat_4.jpg',
-        imgAlt: 'Pulpo al horno',
-        description: 'Olvídate de lo que te enseñó el pulpo.'
+        productName: 'Queso fresco con tomate',
+        href: '/{activeLocale}/product/22',
+        imgSrc: 'static/img/home/montao_queso.jpg',
+        imgAlt: 'Queso fresco con tomate',
+        description: 'Una combinación suave y ligera.'
     }
 ]
