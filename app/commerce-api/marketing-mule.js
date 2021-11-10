@@ -15,7 +15,7 @@ class MarketingMule {
     }
 
     async sendOrderConfirmation(order) {
-        const host = 'https://anypoint.mulesoft.com/mocking/api/v1/links/1061ddf6-84c4-4883-989e-66d52da7db66/order-confirm'
+        const host = 'http://mvc-marketing.us-e2.cloudhub.io/api/order-confirm'
         const method = 'POST'
         const  headers = {
             'Content-Type': 'application/json'

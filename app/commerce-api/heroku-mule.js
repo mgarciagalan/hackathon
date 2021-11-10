@@ -15,7 +15,7 @@ class HerokuMule {
     }
 
     async sendOrder(order) {
-        const host = 'https://anypoint.mulesoft.com/mocking/api/v1/links/01c55346-5538-49a4-99d3-27ef7d845aac/order'
+        const host = 'http://mvc-heroku.us-e2.cloudhub.io/api/order'
         const method = 'POST'
         const  headers = {
             'Content-Type': 'application/json'
